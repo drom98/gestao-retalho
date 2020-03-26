@@ -1,61 +1,60 @@
 @extends('dashboard.layouts.app')
 
 @section('content')
-                <h1 class="h3 text-gray-800">Estatísticas</h1>
-                <p class="mb-4">Controlar gastos de retalho...</p>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-5 text-dark">Gestão de retalho</h1>
+            <p class="lead">Área de administração</p>
+        </div>
+    </div>
 
-                @include('dashboard.includes.charts')
-                <!-- DataTales Example -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                      <h6 class="m-0 font-weight-bold text-primary">Tabela</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="retalhoTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Comprimento</th>
-                                        <th>Largura</th>
-                                        <th>Área</th>
-                                        <th>Ações</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Comprimento</th>
-                                        <th>Largura</th>
-                                        <th>Área</th>
-                                        <th>Ações</th>
-                                    </tr>
-                                </tfoot>
-                                <tbody>
-                                    @foreach ($retalho as $item)
-                                    <tr>
-                                        <td>{{ $item->id }}</td>
-                                        <td>{{ $item->comprimento }}</td>
-                                        <td>{{ $item->largura }}</td>
-                                        <td>{{ $item->area }}</td>
-                                        <td><i class="fas fa-check-circle"></i></td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+    <div class="row">
+        <div class="col-xl-4 col-md-12 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Retalho disponível</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $qtRetalho}}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-layer-group fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
             </div>
-          <!-- /.container-fluid -->
+        </div>
+
+        <div class="col-xl-4 col-md-12 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Tipos de Vidro</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $qtTiposVidro }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-box-open fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-4 col-md-12 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Categorias</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $qtCategorias }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-folder fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<!-- End of Page Wrapper -->
-
-<script>
-    $(document).ready( function () {
-    $('#retalhoTable').DataTable();
-} );
-</script>
 @endsection

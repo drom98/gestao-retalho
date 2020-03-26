@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Categoria;
 use App\Retalho;
+use App\TipoVidro;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,9 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $retalho = Retalho::all();
         return view('home', [
-            'retalho' => $retalho
+            'qtRetalho' => Retalho::count(),
+            'qtTiposVidro' => TipoVidro::count(),
+            'qtCategorias' => Categoria::count()
         ]);
     }
 }

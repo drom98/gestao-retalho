@@ -44,7 +44,7 @@
     </div>
     <li class="nav-item">
       <a class="nav-link collapsed text-light" href="#" data-toggle="collapse" data-target="#tiposVidro" aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-layer-group"></i>
+          <i class="fas fa-box-open"></i>
         <span>Tipos de vidro</span>
       </a>
       <div id="tiposVidro" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -62,7 +62,7 @@
     </div>
     <li class="nav-item">
       <a class="nav-link collapsed text-light" href="#" data-toggle="collapse" data-target="#categorias" aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-layer-group"></i>
+        <i class="fas fa-folder"></i>
         <span>Categorias</span>
       </a>
       <div id="categorias" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
