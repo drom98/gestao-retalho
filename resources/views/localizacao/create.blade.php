@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.app')
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">Adicionar categoria</h1>
+    <h1 class="h3 mb-4 text-gray-800">Adicionar localização</h1>
     @error('comprimento')
     <p>{{ $message }}</p>
     @enderror
@@ -19,14 +19,14 @@
         <div class="col-md-8">
             <div class="card mb-4">
                 <div class="card-header">
-                    Adicionar nova categoria
+                    Adicionar nova localização
                 </div>
                 <div class="card-body">
-                    <form class="user" method="POST" action="/categoria">
+                    <form class="user" method="POST" action="/localizacao">
                         @csrf
                         <div class="form-group">
-                            <label for="comprimento">Nome:</label>
-                            <input name="nome" id="nome" type="text" class="form-control" placeholder="Nome da categoria">
+                            <label for="nome">Nome:</label>
+                            <input name="nome" id="nome" type="text" class="form-control" placeholder="Nome da localização">
                         </div>
                         <button type="submit" class="btn btn-primary">Adicionar</button>
                     </form>

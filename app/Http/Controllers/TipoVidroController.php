@@ -42,6 +42,8 @@ class TipoVidroController extends Controller
                 'nome' => $request->nome
             ]
         );
+
+        return self::index()->with('sucesso', 'Novo tipo de vidro adicionado.');
     }
 
     /**

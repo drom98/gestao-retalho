@@ -46,18 +46,17 @@
                             </div>
                             <div class="form-group">
                                 <label for="largura">Localizaçao:</label>
-                                <select class="custom-select" name="localizacao">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <select class="custom-select localizacaoSelect" name="localizacao">
+                                    @foreach($localizacoes as $localizacao)
+                                        <option value="{{ $localizacao->id }}">{{ $localizacao->nome }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="area">Área(m2):</label>
                                 <input type="number" step="0.01" name="area" id="area" class="form-control" readonly>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-user">Adicionar</button>
+                            <button type="submit" class="btn btn-primary">Adicionar</button>
                           </form>
                     </div>
                   </div>
@@ -68,6 +67,7 @@
         <script !src="">
             $(document).ready(function() {
                 $('.tipoVidroSelect').select2({theme: 'bootstrap4'});
+                $('.localizacaoSelect').select2({theme: 'bootstrap4'});
             });
         </script>
     @endpush

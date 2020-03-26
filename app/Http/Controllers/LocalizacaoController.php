@@ -25,7 +25,7 @@ class LocalizacaoController extends Controller
      */
     public function create()
     {
-        //
+        return view('localizacao.create');
     }
 
     /**
@@ -36,7 +36,11 @@ class LocalizacaoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Localizacao::create([
+            'nome' => $request->nome
+        ]);
+
+        return self::index()->with('sucesso', 'Nova localização adicionada.');
     }
 
     /**

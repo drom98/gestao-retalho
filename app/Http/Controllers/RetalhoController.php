@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Localizacao;
 use App\Retalho;
 use App\TipoVidro;
 use Illuminate\Http\Request;
@@ -29,7 +30,10 @@ class RetalhoController extends Controller
      */
     public function create()
     {
-        return view('retalho.create')->with('tiposVidro', TipoVidro::all());
+        return view('retalho.create', [
+            'tiposVidro' => TipoVidro::all(),
+            'localizacoes' => Localizacao::all()
+        ]);
     }
 
     /**
