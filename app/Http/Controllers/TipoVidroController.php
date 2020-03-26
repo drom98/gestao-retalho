@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Categoria;
 use App\TipoVidro;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class TipoVidroController extends Controller
      */
     public function index()
     {
-        //
+        return view('tipoVidro.index')->with('tipos', TipoVidro::all());
     }
 
     /**
@@ -24,7 +25,7 @@ class TipoVidroController extends Controller
      */
     public function create()
     {
-        //
+        return view('tipoVidro.create')->with('categorias', Categoria::all());
     }
 
     /**
@@ -35,7 +36,11 @@ class TipoVidroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        TipoVidro::create(
+            [
+                'nome' => $request->nome
+            ]
+        );
     }
 
     /**

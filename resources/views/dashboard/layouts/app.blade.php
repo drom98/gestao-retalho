@@ -18,6 +18,8 @@
   <link href="{{asset('assets/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css"></link>
   <!-- Custom styles for this template-->
   <link href="{{asset('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="{{asset('assets/css/select2-bootstrap4.min.css')}}" rel="stylesheet">
 
 </head>
 
@@ -69,12 +71,15 @@
   <script src="{{asset('assets/js/sb-admin-2.min.js')}}"></script>
   <script src="{{asset('assets/vendor/datatables/jquery.dataTables.min.js')}}"></script>
   <script src="{{asset('assets/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 
   <script>
     $(document).ready( function () {
         $('#retalhoTable').DataTable();
     });
 </script>
+
+@stack('select-search')
 
 </body>
 

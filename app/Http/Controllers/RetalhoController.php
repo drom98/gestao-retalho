@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Retalho;
+use App\TipoVidro;
 use Illuminate\Http\Request;
 
 class RetalhoController extends Controller
@@ -14,7 +15,10 @@ class RetalhoController extends Controller
      */
     public function index()
     {
-        //
+        $retalho = Retalho::all();
+        return view('retalho.index', [
+            'retalho' => $retalho
+        ]);
     }
 
     /**
@@ -24,7 +28,7 @@ class RetalhoController extends Controller
      */
     public function create()
     {
-        //
+        return view('retalho.create')->with('tiposVidro', TipoVidro::all());
     }
 
     /**
@@ -35,7 +39,22 @@ class RetalhoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validar($request);
+
+        $area = ($request->largura * $request->comprimento)/1000000;
+
+        Retalho::create(
+            [
+                'lote' => $request->lote,
+                'comprimento' => $request->comprimento,
+                'largura' => $request->largura,
+                'area' => $area,
+                'id_tipoVidro' => $request->tipoVidro,
+                'id_localizacao' => $request->localizacao
+            ]
+        );
+
+        return self::index()->with('sucesso', 'Novo retalho adicionado.');
     }
 
     /**
@@ -81,5 +100,14 @@ class RetalhoController extends Controller
     public function destroy(Retalho $retalho)
     {
         //
+    }
+
+    private function validar(Request $request)
+    {
+        return $this->validate($request, [
+            'comprimento'=> 'required|numeric',
+            'largura'=> 'required|numeric',
+            'area'=> 'required|numeric|gt:0.4'
+        ]);
     }
 }
