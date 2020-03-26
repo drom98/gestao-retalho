@@ -21,6 +21,12 @@ Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/retalho/getRetalho', 'RetalhoController@getRetalho')->name('retalho.get');
+Route::get('/tipoVidro/getTipoVidro', 'TipoVidroController@getTiposVidro')->name('tipoVidro.get');
+Route::get('/categoria/getCategorias', 'CategoriaController@getCategorias')->name('categorias.get');
+Route::get('/localizacao/getLocalizacoes', 'LocalizacaoController@getLocalizacoes')->name('localizacoes.get');
+
 Route::resource('retalho', 'RetalhoController');
 Route::resource('tipoVidro', 'TipoVidroController');
 Route::resource('categoria', 'CategoriaController');
+Route::resource('localizacao', 'LocalizacaoController');

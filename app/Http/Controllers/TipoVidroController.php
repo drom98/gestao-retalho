@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Categoria;
 use App\TipoVidro;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class TipoVidroController extends Controller
 {
@@ -86,5 +87,10 @@ class TipoVidroController extends Controller
     public function destroy(TipoVidro $tipoVidro)
     {
         //
+    }
+
+    public function getTiposVidro()
+    {
+        return Datatables::of(TipoVidro::query())->make(true);
     }
 }

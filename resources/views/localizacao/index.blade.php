@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.app')
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">Categorias</h1>
+    <h1 class="h3 mb-4 text-gray-800">Localizações</h1>
 
     @isset ($sucesso)
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -22,7 +22,7 @@
                 <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
 
                 </div>
-                <table class="table table-bordered" id="tabela-categorias" width="100%">
+                <table class="table table-bordered" id="tabela-localizacoes" width="100%">
                     <thead>
                     <tr>
                         <th>#</th>
@@ -40,13 +40,13 @@
 @push('datatables')
     <script>
         $(function() {
-            $('#tabela-categorias').DataTable({
+            $('#tabela-localizacoes').DataTable({
                 language: {
                     url: '//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese.json'
                 },
                 processing: true,
                 serverSide: true,
-                ajax: '{!! route('categorias.get') !!}',
+                ajax: '{!! route('localizacoes.get') !!}',
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'nome', name: 'nome' }

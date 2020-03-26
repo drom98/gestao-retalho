@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Localizacao;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class LocalizacaoController extends Controller
 {
@@ -14,7 +15,7 @@ class LocalizacaoController extends Controller
      */
     public function index()
     {
-        //
+        return view('localizacao.index');
     }
 
     /**
@@ -81,5 +82,10 @@ class LocalizacaoController extends Controller
     public function destroy(Localizacao $localizacao)
     {
         //
+    }
+
+    public function getLocalizacoes()
+    {
+        return Datatables::of(Localizacao::query())->make(true);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Retalho;
 use App\TipoVidro;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class RetalhoController extends Controller
 {
@@ -109,5 +110,10 @@ class RetalhoController extends Controller
             'largura'=> 'required|numeric',
             'area'=> 'required|numeric|gt:0.4'
         ]);
+    }
+
+    public function getRetalho()
+    {
+        return Datatables::of(Retalho::query())->make(true);
     }
 }

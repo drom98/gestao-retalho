@@ -22,7 +22,7 @@
                 <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
 
                 </div>
-                <table class="table table-bordered" id="retalhoTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="tabela-retalho">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -32,60 +32,33 @@
                             <th>Área</th>
                             <th>Tipo Vidro</th>
                             <th>Localizaçao</th>
-                            <th>Opçoes</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>#</th>
-                            <th>Lote</th>
-                            <th>Comprimento</th>
-                            <th>Largura</th>
-                            <th>Área</th>
-                            <th>Tipo Vidro</th>
-                            <th>Localizaçao</th>
-                            <th>Opçoes</th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-                        @foreach ($retalho as $item)
-                        <tr>
-                            <td>{{ $item->id }}</td>
-                            <td>{{ $item->comprimento }}</td>
-                            <td>{{ $item->largura }}</td>
-                            <td>{{ $item->area }}</td>
-                            <td class="w-75">
-                                <a href="#" class="btn btn-primary btn-sm btn-icon-split btn-block justify-content-start">
-                                    <span class="icon text-white-50">
-                                      <i class="fas fa-edit"></i>
-                                    </span>
-                                    <span class="text">Usar retalho</span>
-                                </a>
-                                <a href="/retalho/{{ $item->id }}/edit" class="btn btn-success btn-sm btn-icon-split btn-block justify-content-start">
-                                    <span class="icon text-white-50">
-                                      <i class="fas fa-edit"></i>
-                                    </span>
-                                    <span class="text">Editar</span>
-                                </a>
-                                <a href="#" class="btn btn-danger btn-sm btn-icon-split btn-block justify-content-start">
-                                    <span class="icon text-white-50">
-                                      <i class="fas fa-trash"></i>
-                                    </span>
-                                    <span class="text">Apagar</span>
-                                </a>
-                                <form action="{{ route('retalho.destroy', $item->id) }}" method="post" style="width: auto;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
-                                </form>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
                 </table>
             </div>
         </div>
     </div>
-
-
 @endsection
+@push('datatables')
+    <script>
+        $(function() {
+            $('#tabela-retalho').DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese.json'
+                },
+                processing: true,
+                serverSide: true,
+                ajax: '{!! route('retalho.get') !!}',
+                columns: [
+                    { data: 'id', name: 'id' },
+                    { data: 'num_lote', name: 'num_lote' },
+                    { data: 'comprimento', name: 'comprimento' },
+                    { data: 'largura', name: 'largura' },
+                    { data: 'area', name: 'area' },
+                    { data: 'id_tipoVidro', name: 'id_tipoVidro' },
+                    { data: 'id_localizacao', name: 'id_localizacao' }
+                ]
+            });
+        });
+    </script>
+@endpush

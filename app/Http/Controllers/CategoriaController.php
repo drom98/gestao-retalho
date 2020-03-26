@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Categoria;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class CategoriaController extends Controller
 {
@@ -90,5 +91,10 @@ class CategoriaController extends Controller
     public function destroy(Categoria $categoria)
     {
         //
+    }
+
+    public function getCategorias()
+    {
+        return Datatables::of(Categoria::query())->make(true);
     }
 }
