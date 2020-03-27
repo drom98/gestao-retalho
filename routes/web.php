@@ -14,14 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('operario.auth.login');
 });
 
-Auth::routes(['register' => false]);
+Route::get('/admin', 'AdminController@index')->name('admin.home');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('admin/login', 'AuthAdmin\LoginController@showLoginForm')->name('admin.login');
+Route::get('admin/register', 'AuthAdmin\RegisterController@showRegistrationForm')->name('admin.register');
+Route::post('admin/register', 'AuthAdmin\RegisterController@register')->name('admin.register');
+Route::post('admin/login', 'AuthAdmin\LoginController@login')->name('admin.login');
+Route::post('admin/logout', 'AuthAdmin\LoginController@logout')->name('admin.logout');
 
-Route::middleware('auth')->group(function () {
+Auth::routes();
+
+Route::middleware('auth:admin')->group(function () {
     Route::get('/retalho/getRetalho', 'RetalhoController@getRetalho')->name('retalho.get');
     Route::get('/tipoVidro/getTipoVidro', 'TipoVidroController@getTiposVidro')->name('tipoVidro.get');
     Route::get('/categoria/getCategorias', 'CategoriaController@getCategorias')->name('categorias.get');
