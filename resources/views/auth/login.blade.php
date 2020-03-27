@@ -2,10 +2,11 @@
 
 @section('content')
 <div class="container">
-    <form class="form-signin" method="POST" action="{{ route('login') }}">
+    <form class="form-signin" method="POST" action="{{ route('admin.login') }}">
         @csrf
         <img class="mb-4" src="#" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Iniciar Sessão</h1>
+        <small class="text-secondary">Area de administrador</small>
         <label for="username" class="sr-only">Utilizador</label>
         <input name="username" type="text" class="form-control form-control-user @error('username') is-invalid @enderror" value="{{ old('username') }}" required autocomplete="username" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Utilizador">
         @error('username')
