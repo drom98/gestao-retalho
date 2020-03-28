@@ -45,11 +45,16 @@
         </a>
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 {{ __('Sair') }}
             </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @if( Auth::guard('web') )
+                <form id="logout-form" action="{{ route('operario.logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            @endif
+            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
         </div>

@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.app')
+@extends('admin.dashboard.layouts.app')
 
 @section('content')
     <h1 class="h3 mb-4 text-gray-800">Tipos de Vidro</h1>

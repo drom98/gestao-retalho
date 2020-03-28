@@ -13,19 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('operario.auth.login');
+Route::get('/', 'OperarioHomeController@home')->name('operario.home');
+
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('operario.login');
+Route::post('/login', 'Auth\LoginController@login')->name('operario.login');
+Route::post('/logout', 'Auth\LoginController@logout')->name('operario.logout');
+
+Route::prefix('admin')->group(function ()  {
+    Route::get('/', 'AdminController@index')->name('admin.home');
+    Route::get('/login', 'AuthAdmin\LoginController@showLoginForm')->name('admin.login');
+    Route::post('/login', 'AuthAdmin\LoginController@login')->name('admin.doLogin');
+    Route::post('/logout', 'AuthAdmin\LoginController@logout')->name('admin.logout');
+
+    //Route::get('/register', 'AuthAdmin\RegisterController@showRegistrationForm')->name('admin.register');
+    //Route::post('/register', 'AuthAdmin\RegisterController@register')->name('admin.register');
 });
-
-Route::get('/admin', 'AdminController@index')->name('admin.home');
-
-Route::get('admin/login', 'AuthAdmin\LoginController@showLoginForm')->name('admin.login');
-Route::get('admin/register', 'AuthAdmin\RegisterController@showRegistrationForm')->name('admin.register');
-Route::post('admin/register', 'AuthAdmin\RegisterController@register')->name('admin.register');
-Route::post('admin/login', 'AuthAdmin\LoginController@login')->name('admin.login');
-Route::post('admin/logout', 'AuthAdmin\LoginController@logout')->name('admin.logout');
-
-Auth::routes();
 
 Route::middleware('auth:admin')->group(function () {
     Route::get('/retalho/getRetalho', 'RetalhoController@getRetalho')->name('retalho.get');

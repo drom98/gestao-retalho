@@ -1,12 +1,12 @@
-@extends('dashboard.layouts.login')
+@extends('admin.dashboard.layouts.login')
 
 @section('content')
 <div class="container">
-    <form class="form-signin" method="POST" action="{{ route('login') }}">
+    <form class="form-signin" method="POST" action="{{ route('operario.login') }}">
         @csrf
-        <img class="mb-4" src="#" alt="" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Iniciar Sessão</h1>
-        <small class="text-secondary">Operario</small>
+        <img class="mb-4" src="{{ asset('assets/img/logo.png') }}" alt="" width="150">
+        <h1 class="h3 font-weight-normal">Iniciar Sessão</h1>
+        <small class="text-secondary">Secçao de operario</small>
         <label for="username" class="sr-only">Utilizador</label>
         <input name="username" type="text" class="form-control form-control-user @error('username') is-invalid @enderror" value="{{ old('username') }}" required autocomplete="username" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Utilizador">
         @error('username')
@@ -29,7 +29,7 @@
         </div>
         -->
         <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-        <p class="mt-5 mb-3 text-muted">Aplicação de gestão de retalho</p>
     </form>
+    <a class="mt-5" href="{{ route('admin.login') }}">Ir para area de administrador</a>
 </div>
 @endsection
