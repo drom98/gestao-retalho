@@ -18,7 +18,11 @@ Route::get('/', 'OperarioController@home')->name('home');
 
 Auth::routes(['register' => false]);
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware'=>['auth:web' OR 'auth:admin']],function (){
+
+    Route::resource('retalho', 'RetalhoController');
+
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/retalho/getRetalho', 'RetalhoController@getRetalho')->name('retalho.get');
@@ -26,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/categoria/getCategorias', 'CategoriaController@getCategorias')->name('categorias.get');
     Route::get('/localizacao/getLocalizacoes', 'LocalizacaoController@getLocalizacoes')->name('localizacoes.get');
 
-    Route::resource('retalho', 'RetalhoController');
+    //Route::resource('retalho', 'RetalhoController');
     Route::resource('tipoVidro', 'TipoVidroController');
     Route::resource('categoria', 'CategoriaController');
     Route::resource('localizacao', 'LocalizacaoController');
@@ -34,8 +38,11 @@ Route::middleware('auth')->group(function () {
 
 Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 
-    Route::namespace('Auth')->group(function(){
+    Route::get('/', function () {
+        return redirect()->route('admin.home');
+    });
 
+    Route::namespace('Auth')->group(function(){
         //Login Routes
         Route::get('/login','LoginController@showLoginForm')->name('login');
         Route::post('/login','LoginController@login');

@@ -93,6 +93,25 @@
     </li>
     <hr class="sidebar-divider d-none d-md-block">
 
+    <div class="sidebar-heading text-muted">
+        Gerir utilizadores
+    </div>
+    <li class="nav-item">
+        <a class="nav-link collapsed text-light" href="#" data-toggle="collapse" data-target="#utilizadores" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-users"></i>
+            <span>Utilizadores</span>
+        </a>
+        <div id="utilizadores" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <!--<h6 class="collapse-header">Custom Components:</h6>-->
+                <a class="collapse-item" href="/utilizadores">Ver operarios</a>
+                <a class="collapse-item" href="/localizacao">Ver administradores</a>
+                <a class="collapse-item" href="/localizacao/create">Adicionar utilizador</a>
+            </div>
+        </div>
+    </li>
+    <hr class="sidebar-divider d-none d-md-block">
+
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
       <button class="rounded-circle border-0" id="sidebarToggle"></button>
