@@ -1,4 +1,4 @@
-@extends('admin.dashboard.layouts.app')
+@extends('dashboard.layouts.app')
 
 @section('content')
     <div class="jumbotron jumbotron-fluid">
