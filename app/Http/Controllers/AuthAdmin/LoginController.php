@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\AuthAdmin;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -22,34 +25,19 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Get the login username to be used by the controller.
+     * Handle an authentication attempt.
      *
-     * @return string
-     */
-    public function username()
-    {
-        return 'username';
-    }
-
-    /**
-     * Where to redirect users after login.
+     * @param  \Illuminate\Http\Request $request
      *
-     * @var string
+     * @return Response
      */
-    protected $redirectTo = '/';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function authenticate(Request $request)
     {
-        $this->middleware('guest')->except('logout');
-    }
+        $credentials = $request->only('email', 'password');
 
-    public function showLoginForm()
-    {
-        return view('operario.auth.login');
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            return redirect()->intended('/admin');
+        }
     }
 }

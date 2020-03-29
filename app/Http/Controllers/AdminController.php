@@ -7,7 +7,7 @@ use App\Retalho;
 use App\TipoVidro;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class AdminController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -16,7 +16,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //dd('area admin');
+        $this->middleware('auth:admin');
     }
 
     /**
@@ -26,7 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home', [
+        return view('admin.home', [
             'qtRetalho' => Retalho::count(),
             'qtTiposVidro' => TipoVidro::count(),
             'qtCategorias' => Categoria::count()

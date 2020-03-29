@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.login')
+@extends('admin.dashboard.layouts.login')
 
 @section('content')
     <div class="container">
@@ -14,8 +14,24 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Registar</h1>
                                     </div>
-                                    <form method="POST" action="{{ route('login') }}">
+                                    <form method="POST" action="{{ route('admin.register') }}">
                                         @csrf
+                                        <div class="form-group">
+                                            <input name="name" type="text" class="form-control form-control-user @error('email') is-invalid @enderror" value="{{ old('email') }}" required autocomplete="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Nome">
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <input name="username" type="text" class="form-control form-control-user @error('email') is-invalid @enderror" value="{{ old('email') }}" required autocomplete="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Username">
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                                            @enderror
+                                        </div>
                                         <div class="form-group">
                                             <input name="email" type="email" class="form-control form-control-user @error('email') is-invalid @enderror" value="{{ old('email') }}" required autocomplete="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
                                             @error('email')

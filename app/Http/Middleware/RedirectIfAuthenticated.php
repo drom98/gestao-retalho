@@ -18,12 +18,21 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
+<<<<<<< HEAD
         if (Auth::guard($guard)->check()) {
             if($guard == 'admin') {
                 //utilizador autenticado com a guarda admin
                 return redirect()->route('admin.home');
             }
             return redirect()->route('home');
+=======
+        if (Auth::guard($guard)->check() && $guard === 'web') {
+            return redirect(RouteServiceProvider::HOME);
+>>>>>>> master
+        }
+
+        if (Auth::guard($guard)->check() && $guard === 'admin') {
+            return redirect('/admin');
         }
 
         return $next($request);

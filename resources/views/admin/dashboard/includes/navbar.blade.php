@@ -38,6 +38,7 @@
       </li>
       <div class="topbar-divider d-none d-sm-block"></div>
       <!-- Nav Item - User Information -->
+<<<<<<< HEAD:resources/views/dashboard/includes/navbar.blade.php
         @if( Auth::guard('web')->check() )
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -74,6 +75,29 @@
                 </div>
             </li>
         @endif
+=======
+      <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="mr-2 d-none d-lg-inline text-dark small">{{ Auth::user()->name }}</span>
+            <i class="fas fa-user-circle text-dark"></i>
+        </a>
+        <!-- Dropdown - User Information -->
+        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                {{ __('Sair') }}
+            </a>
+            @if( Auth::guard('web') )
+                <form id="logout-form" action="{{ route('operario.logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            @endif
+            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </div>
+      </li>
+>>>>>>> master:resources/views/admin/dashboard/includes/navbar.blade.php
     </ul>
   </nav>
   <!-- End of Topbar -->
