@@ -2,8 +2,13 @@
 
 namespace App;
 
+<<<<<<< HEAD
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+=======
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+>>>>>>> master
 
 class Admin extends Authenticatable
 {

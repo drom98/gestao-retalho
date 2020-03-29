@@ -16,6 +16,7 @@ class AdminController extends Controller
      */
     public function __construct()
     {
+        //dd('area admin');
         $this->middleware('auth:admin');
     }
 
@@ -26,7 +27,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('home', [
+        return view('admin.home', [
             'qtRetalho' => Retalho::count(),
             'qtTiposVidro' => TipoVidro::count(),
             'qtCategorias' => Categoria::count()
