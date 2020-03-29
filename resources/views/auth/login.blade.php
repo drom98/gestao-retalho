@@ -4,7 +4,7 @@
 <div class="container">
     <form class="form-signin" method="POST" action="{{ route('login') }}">
         @csrf
-        <img class="mb-4" src="#" alt="" width="72" height="72">
+        <img class="mb-4" src="{{ asset('assets/img/logo.png') }}" alt="" width="160">
         <h1 class="h3 mb-3 font-weight-normal">Iniciar Sessão</h1>
         <label for="username" class="sr-only">Utilizador</label>
         <input name="username" type="text" class="form-control form-control-user @error('username') is-invalid @enderror" value="{{ old('username') }}" required autocomplete="username" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Utilizador">
@@ -28,7 +28,7 @@
         </div>
         -->
         <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-        <p class="mt-5 mb-3 text-muted">Aplicação de gestão de retalho</p>
     </form>
+    <a class="mt-5" href="{{ route('admin.login') }}">Ir para a area de administrador</a>
 </div>
 @endsection
