@@ -6,19 +6,22 @@
             <div class="text-center">
                 <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 16rem;" src="{{ asset('assets/img/logo.png') }}" alt="">
                 <h2 class="text-dark font-weight-bold">Cristalmax</h2>
-                <p class="text-secondary">{{ Auth::user()->name }}</p>
+                <p class="text-secondary">Utilizador: {{ Auth::user()->name }}</p>
             </div>
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-6">
             <div class="card shadow mb-4">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <a href="/retalho" class="btn btn-block btn-primary text-white">Consultar retalho</a>
                         </div>
-                        <div class="col-md-6">
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
                             <a href="/retalho/create" class="btn btn-block btn-primary text-white">Insrerir retalho</a>
                         </div>
                     </div>

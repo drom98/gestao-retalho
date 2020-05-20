@@ -27,7 +27,8 @@
                     <tr>
                         <th>#</th>
                         <th>Nome</th>
-                        <th>Opçoes</th>
+                        <th>Data</th>
+                        <th>Opções</th>
                     </tr>
                     </thead>
                 </table>
@@ -49,7 +50,9 @@
                 ajax: '{!! route('categorias.get') !!}',
                 columns: [
                     { data: 'id', name: 'id' },
-                    { data: 'nome', name: 'nome' }
+                    { data: 'nome', name: 'nome' },
+                    { data: 'created_at', name: 'created_at'},
+                    { data: 'opcoes', name: 'opcoes' },
                 ]
             });
         });

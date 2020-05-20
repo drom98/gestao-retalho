@@ -118,6 +118,11 @@ class RetalhoController extends Controller
 
     public function getRetalho()
     {
-        return Datatables::of(Retalho::query())->make(true);
+        return Datatables::of(Retalho::query())
+            ->addColumn('created_at', function ($retalho) {
+                return $retalho->created_at->format('d M Y');
+            })
+            ->rawColumns(['created_at'])
+            ->make(true);
     }
 }

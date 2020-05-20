@@ -95,6 +95,16 @@ class CategoriaController extends Controller
 
     public function getCategorias()
     {
-        return Datatables::of(Categoria::query())->make(true);
+        return Datatables::of(Categoria::query())
+            ->addColumn('opcoes', function ($categoria) {
+                $btnEditar = '<a href="/categoria/' . $categoria->id . '/edit" class="btn btn-primary "><i class="fas fa-edit"></i></a>';
+                $btnApagar = '<a style="margin-left: 6px;" href="/categoria/' . $categoria->id . '/edit" class="btn btn-danger "><i class="fas fa-trash"></i></a>';
+                return $btnEditar . $btnApagar;
+            })
+            ->addColumn('created_at', function ($categoria) {
+                return $categoria->created_at->format('d M Y');
+            })
+            ->rawColumns(['opcoes'])
+            ->make(true);
     }
 }
