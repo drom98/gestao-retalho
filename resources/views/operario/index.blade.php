@@ -13,7 +13,7 @@
                     <br>
                     <div class="row">
                         <div class="col-md-12">
-                            <a href="/retalho/create" class="btn btn-block btn-primary text-white">Inserir retalho</a>
+                            <a href="/retalho/adicionar" class="btn btn-block btn-primary text-white">Inserir retalho</a>
                         </div>
                     </div>
                     <br>

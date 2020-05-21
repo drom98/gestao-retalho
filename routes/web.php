@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'OperarioController@home')->name('home');
 Route::get('/retalho', 'OperarioController@consultarRetalho')->name('retalho');
+Route::get('/retalho/adicionar', 'OperarioController@adicionarRetalho')->name('retalho');
 
 Auth::routes(['register' => false]);
 
