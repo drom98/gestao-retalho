@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Retalho;
+use App\Services\RetalhoService;
 use Illuminate\Http\Request;
 
 class OperarioController extends Controller
@@ -19,5 +21,10 @@ class OperarioController extends Controller
     public function home()
     {
         return view('operario.index');
+    }
+
+    public function consultarRetalho()
+    {
+        return view('operario.retalho.index');
     }
 }

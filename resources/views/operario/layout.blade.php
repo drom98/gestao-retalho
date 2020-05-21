@@ -26,6 +26,15 @@
 <body>
 <div id="wrapper">
     <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-6">
+                <div class="text-center">
+                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 16rem;" src="{{ asset('assets/img/logo.png') }}" alt="">
+                    <h2 class="text-dark font-weight-bold">Cristalmax</h2>
+                    <p class="text-secondary">Utilizador: {{ Auth::user()->name }}</p>
+                </div>
+            </div>
+        </div>
         @yield('content')
     </div>
 </div>
