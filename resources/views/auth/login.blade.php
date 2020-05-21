@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.login')
+@extends('admin.dashboard.layouts.login')
 
 @section('content')
 <div class="container">

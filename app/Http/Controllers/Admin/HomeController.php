@@ -28,7 +28,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        return view('dashboard.dashboard', [
+        return view('admin.home', [
             'qtRetalho' => Retalho::count(),
             'qtTiposVidro' => TipoVidro::count(),
             'qtCategorias' => Categoria::count()

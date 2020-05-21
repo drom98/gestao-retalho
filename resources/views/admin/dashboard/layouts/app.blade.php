@@ -25,10 +25,10 @@
 
 <body id="page-top">
     <div id="wrapper">
-        @include('dashboard.includes.sidebar')
+        @include('admin.dashboard.includes.sidebar')
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
-                @include('dashboard.includes.navbar')
+                @include('admin.dashboard.includes.navbar')
                 <div class="container-fluid">
                     @yield('content')
                 </div>

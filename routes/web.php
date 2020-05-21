@@ -18,8 +18,6 @@ Route::get('/', 'OperarioController@home')->name('home');
 
 Auth::routes(['register' => false]);
 
-//Route::get('/home', 'HomeController@index')->name('home');
-
 Route::middleware('auth')->group(function () {
     Route::get('/retalho/getRetalho', 'RetalhoController@getRetalho')->name('retalho.get');
     Route::get('/tipoVidro/getTipoVidro', 'TipoVidroController@getTiposVidro')->name('tipoVidro.get');
@@ -33,6 +31,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
+
+    Route::get('/', 'HomeController@index')->name('home');
 
     Route::namespace('Auth')->group(function(){
 
@@ -50,6 +50,4 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
         Route::post('/password/reset','ResetPasswordController@reset')->name('password.update');
 
     });
-
-    Route::get('/dashboard','HomeController@index')->name('home')->middleware('auth:admin');
 });
