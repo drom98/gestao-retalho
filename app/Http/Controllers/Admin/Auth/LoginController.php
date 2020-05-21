@@ -17,10 +17,10 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:admin')->except('logout');
+        $this->middleware('guest')->except('logout');
     }
 
-    //protected $redirectTo = '/admin/dashboard';
+    protected $redirectTo = '/admin/dashboard';
 
     public function username()
     {
