@@ -28,7 +28,7 @@ class TipoVidroController extends Controller
      */
     public function create()
     {
-        return view('tipoVidro.create')->with('categorias', Categoria::all());
+        return view('admin.tipoVidro.create')->with('categorias', Categoria::all());
     }
 
     /**
@@ -41,7 +41,8 @@ class TipoVidroController extends Controller
     {
         TipoVidro::create(
             [
-                'nome' => $request->nome
+                'nome' => $request->nome,
+                'id_categoria' => $request->categoria
             ]
         );
 

@@ -22,11 +22,15 @@
                       Adicionar novo retalho
                     </div>
                     <div class="card-body">
-                        <form class="user" method="POST" action="/retalho">
+                        <form class="user" method="POST" action="/admin/retalho">
                             @csrf
                             <div class="form-group">
-                                <label for="comprimento">Lote:</label>
+                                <label for="lote">Lote:</label>
                                 <input name="lote" id="lote" step="1" type="number" class="form-control" placeholder="Lote">
+                            </div>
+                            <div class="form-group">
+                                <label for="num_of">Número OF:</label>
+                                <input name="num_of" id="num_of" step="1" type="number" class="form-control" placeholder="Número OF">
                             </div>
                             <div class="form-group">
                                 <label for="comprimento">Comprimento(mm):</label>

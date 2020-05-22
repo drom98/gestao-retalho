@@ -22,10 +22,10 @@
                     Adicionar novo tipo de vidro
                 </div>
                 <div class="card-body">
-                    <form class="user" method="POST" action="/tipoVidro">
+                    <form class="user" method="POST" action="/admin/tipoVidro">
                         @csrf
                         <div class="form-group">
-                            <label for="comprimento">Nome:</label>
+                            <label for="nome">Nome:</label>
                             <input name="nome" id="nome" type="text" class="form-control" placeholder="Nome do tipo de vidro">
                         </div>
                         <div class="form-group">

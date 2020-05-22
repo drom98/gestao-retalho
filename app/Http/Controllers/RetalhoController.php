@@ -44,20 +44,7 @@ class RetalhoController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validar($request);
 
-        $area = ($request->largura * $request->comprimento)/1000000;
-
-        Retalho::create(
-            [
-                'lote' => $request->lote,
-                'comprimento' => $request->comprimento,
-                'largura' => $request->largura,
-                'area' => $area,
-                'id_tipoVidro' => $request->tipoVidro,
-                'id_localizacao' => $request->localizacao
-            ]
-        );
 
         return self::index()->with('sucesso', 'Novo retalho adicionado.');
     }
@@ -105,15 +92,6 @@ class RetalhoController extends Controller
     public function destroy(Retalho $retalho)
     {
         //
-    }
-
-    private function validar(Request $request)
-    {
-        return $this->validate($request, [
-            'comprimento'=> 'required|numeric',
-            'largura'=> 'required|numeric',
-            'area'=> 'required|numeric|gt:0.4'
-        ]);
     }
 
     public function getRetalho()

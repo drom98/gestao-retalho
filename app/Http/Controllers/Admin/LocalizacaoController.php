@@ -26,7 +26,7 @@ class LocalizacaoController extends Controller
      */
     public function create()
     {
-        return view('localizacao.create');
+        return view('admin.localizacao.create');
     }
 
     /**
