@@ -30,6 +30,7 @@
                         <th>Nome de utilizador</th>
                         <th>Email</th>
                         <th>Data</th>
+                        <th>Opções</th>
                     </tr>
                     </thead>
                 </table>
@@ -52,7 +53,8 @@
                     { data: 'name', name: 'name' },
                     { data: 'username', name: 'username' },
                     { data: 'email', name: 'email' },
-                    { data: 'created_at', name: 'created_at'}
+                    { data: 'created_at', name: 'created_at'},
+                    { data: 'opcoes', name: 'opcoes'}
                 ]
             });
         });

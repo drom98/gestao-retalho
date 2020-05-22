@@ -96,6 +96,16 @@ class TipoVidroController extends Controller
 
     public function getDataTables()
     {
-        return Datatables::of(TipoVidro::query())->make(true);
+        return Datatables::of(TipoVidro::query())
+            ->addColumn('created_at', function ($tipoVidro) {
+                return $tipoVidro->created_at->format('d M Y');
+            })
+            ->addColumn('opcoes', function ($tipoVidro) {
+                $btnEditar = '<a style="margin-left: 6px;" href="/admin/tipoVidro/' . $tipoVidro->id . '/edit" class="btn btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
+                $btnApagar = '<a style="margin-left: 6px;" href="/admin/tipoVidro/' . $tipoVidro->id . '/edit" class="btn btn-sm btn-danger "><i class="fas fa-trash"></i> Eliminar</a>';
+                return $btnEditar . $btnApagar;
+            })
+            ->rawColumns(['opcoes'])
+            ->make(true);
     }
 }

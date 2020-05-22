@@ -27,8 +27,8 @@
                     <tr>
                         <th>#</th>
                         <th>Nome</th>
-                        <th>Opções</th>
                         <th>Data</th>
+                        <th>Opções</th>
                     </tr>
                     </thead>
                 </table>
@@ -49,7 +49,8 @@
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'nome', name: 'nome' },
-                    { data: 'created_at', name: 'created_at'}
+                    { data: 'created_at', name: 'created_at'},
+                    { data: 'opcoes', name: 'opcoes'},
                 ]
             });
         });
