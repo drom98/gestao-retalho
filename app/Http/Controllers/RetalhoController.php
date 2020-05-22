@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\RetalhoService;
 use App\Localizacao;
 use App\Retalho;
 use App\TipoVidro;
@@ -10,6 +11,18 @@ use Yajra\DataTables\DataTables;
 
 class RetalhoController extends Controller
 {
+
+    private $retalhoService;
+
+    /**
+     * RetalhoController constructor.
+     * @param $retalhoService
+     */
+    public function __construct(RetalhoService $retalhoService)
+    {
+        $this->retalhoService = $retalhoService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +31,7 @@ class RetalhoController extends Controller
     public function index()
     {
         $retalho = Retalho::all();
-        return view('retalho.index', [
+        return view('operario.retalho.index', [
             'retalho' => $retalho
         ]);
     }
@@ -30,7 +43,7 @@ class RetalhoController extends Controller
      */
     public function create()
     {
-        return view('retalho.create', [
+        return view('operario.retalho.create', [
             'tiposVidro' => TipoVidro::all(),
             'localizacoes' => Localizacao::all()
         ]);
@@ -44,9 +57,9 @@ class RetalhoController extends Controller
      */
     public function store(Request $request)
     {
+        return $this->retalhoService->store($request);
 
-
-        return self::index()->with('sucesso', 'Novo retalho adicionado.');
+        //return self::index()->with('sucesso', 'Novo retalho adicionado.');
     }
 
     /**
@@ -96,11 +109,6 @@ class RetalhoController extends Controller
 
     public function getRetalho()
     {
-        return Datatables::of(Retalho::query())
-            ->addColumn('created_at', function ($retalho) {
-                return $retalho->created_at->format('d M Y');
-            })
-            ->rawColumns(['created_at'])
-            ->make(true);
+        return $this->retalhoService->getDataTables();
     }
 }
