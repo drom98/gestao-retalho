@@ -34,6 +34,7 @@
           <!--<h6 class="collapse-header">Custom Components:</h6>-->
           <a class="collapse-item" href="/admin/retalho">Retalho disponível</a>
           <a class="collapse-item" href="/admin/retalho/create">Adicionar retalho</a>
+          <a class="collapse-item" href="/admin/retalho/usado">Retalho usado</a>
         </div>
       </div>
     </li>

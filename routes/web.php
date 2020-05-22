@@ -31,6 +31,8 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 
     Route::middleware('auth:admin')->group(function () {
 
+        Route::get('/retalho/getUsado', 'RetalhoController@getUsado')->name('retalho.usado');
+        Route::get('/retalho/usado', 'RetalhoController@getViewUsado')->name('retalho.usado.view');
         Route::get('/retalho/get', 'RetalhoController@getDataTables')->name('retalho.get');
         Route::resource('retalho', 'RetalhoController');
 
