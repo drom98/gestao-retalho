@@ -20,7 +20,12 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    protected $redirectTo = '/admin/dashboard';
+    protected function guard()
+    {
+        return Auth::guard('admin');
+    }
+
+    //protected $redirectTo = '/admin/dashboard';
 
     public function username()
     {
@@ -50,19 +55,10 @@ class LoginController extends Controller
         $this->validator($request);
 
         if(Auth::guard('admin')->attempt($request->only('username','password'))){
-            //dd('login passou');
-            //Authentication passed...
-            return redirect()
-                ->intended(route('admin.home'));
+            return redirect(route('admin.home'));
         }
 
-        //Authentication failed...
         return $this->loginFailed();
-        //Validation...
-
-        //Login the admin...
-
-        //Redirect the admin...
     }
 
     /**

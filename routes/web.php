@@ -15,19 +15,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'OperarioController@home')->name('home');
-Route::get('/retalho', 'OperarioController@consultarRetalho')->name('retalho');
-Route::get('/retalho/adicionar', 'OperarioController@adicionarRetalho')->name('retalho');
+//Route::get('/retalho', 'OperarioController@consultarRetalho')->name('retalho');
+//Route::get('/retalho/adicionar', 'OperarioController@adicionarRetalho')->name('retalho');
 
 Auth::routes(['register' => false]);
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth:web', 'auth:admin'])->group(function () {
 
+    /*
     Route::get('/retalho/getRetalho', 'RetalhoController@getRetalho')->name('retalho.get');
     Route::get('/tipoVidro/getTipoVidro', 'TipoVidroController@getTiposVidro')->name('tipoVidro.get');
     Route::get('/categoria/getCategorias', 'CategoriaController@getCategorias')->name('categorias.get');
     Route::get('/localizacao/getLocalizacoes', 'LocalizacaoController@getLocalizacoes')->name('localizacoes.get');
 
-    /*
     Route::resource('retalho', 'RetalhoController');
     Route::resource('tipoVidro', 'TipoVidroController');
     Route::resource('categoria', 'CategoriaController');
@@ -38,6 +38,11 @@ Route::middleware('auth')->group(function () {
 Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 
     Route::get('/', 'HomeController@index')->name('home');
+
+    Route::middleware('auth:admin')->group(function () {
+        Route::get('/retalho/get', 'RetalhoController@getDataTables')->name('retalho.get');
+        Route::resource('retalho', 'RetalhoController');
+    });
 
     Route::namespace('Auth')->group(function(){
 

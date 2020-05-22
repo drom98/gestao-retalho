@@ -25,7 +25,7 @@ class HomeController extends Controller
     /**
      * Show Admin Dashboard.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index(){
         return view('admin.home', [
@@ -33,5 +33,10 @@ class HomeController extends Controller
             'qtTiposVidro' => TipoVidro::count(),
             'qtCategorias' => Categoria::count()
         ]);
+    }
+
+    public function showRetalho()
+    {
+        return view('retalho.index');
     }
 }

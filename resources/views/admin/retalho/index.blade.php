@@ -46,7 +46,7 @@
                 },
                 processing: true,
                 serverSide: true,
-                ajax: '{!! route('retalho.get') !!}',
+                ajax: '{!! route('admin.retalho.get') !!}',
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'num_lote', name: 'num_lote' },
