@@ -1,7 +1,7 @@
 @extends('admin.dashboard.layouts.app')
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">Localizações</h1>
+    <h1 class="h3 mb-4 text-gray-800">Tipos de Vidro</h1>
 
     @isset ($sucesso)
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -22,34 +22,34 @@
                 <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
 
                 </div>
-                <table class="table table-bordered" id="tabela-localizacoes" width="100%">
+                <table class="table table-bordered" id="tabela-tiposVidro" width="100%">
                     <thead>
                     <tr>
                         <th>#</th>
                         <th>Nome</th>
-                        <th>Opçoes</th>
+                        <th>Opções</th>
+                        <th>Data</th>
                     </tr>
                     </thead>
                 </table>
             </div>
         </div>
     </div>
-
-
-@endsection
+@stop
 @push('datatables')
     <script>
         $(function() {
-            $('#tabela-localizacoes').DataTable({
+            $('#tabela-tiposVidro').DataTable({
                 language: {
                     url: '//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese.json'
                 },
                 processing: true,
                 serverSide: true,
-                ajax: '{!! route('localizacoes.get') !!}',
+                ajax: '{!! route('admin.tipoVidro.get') !!}',
                 columns: [
                     { data: 'id', name: 'id' },
-                    { data: 'nome', name: 'nome' }
+                    { data: 'nome', name: 'nome' },
+                    { data: 'created_at', name: 'created_at'}
                 ]
             });
         });

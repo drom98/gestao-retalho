@@ -10,7 +10,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-      <a class="nav-link text-light" href="/home">
+      <a class="nav-link text-light" href="/admin">
         <i class="fas fa-home"></i>
         <span>Dashboard</span></a>
     </li>
@@ -33,7 +33,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
           <!--<h6 class="collapse-header">Custom Components:</h6>-->
           <a class="collapse-item" href="/admin/retalho">Retalho disponível</a>
-          <a class="collapse-item" href="/retalho/create">Adicionar retalho</a>
+          <a class="collapse-item" href="/admin/retalho/create">Adicionar retalho</a>
         </div>
       </div>
     </li>
@@ -50,8 +50,8 @@
       <div id="tiposVidro" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <!--<h6 class="collapse-header">Custom Components:</h6>-->
-          <a class="collapse-item" href="/tipoVidro">Ver tipos de vidro</a>
-          <a class="collapse-item" href="/tipoVidro/create">Adicionar tipo de vidro</a>
+          <a class="collapse-item" href="/admin/tipoVidro">Ver tipos de vidro</a>
+          <a class="collapse-item" href="/admin/tipoVidro/create">Adicionar tipo de vidro</a>
         </div>
       </div>
     </li>
@@ -68,8 +68,8 @@
       <div id="categorias" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <!--<h6 class="collapse-header">Custom Components:</h6>-->
-          <a class="collapse-item" href="/categoria">Ver categorias</a>
-          <a class="collapse-item" href="/categoria/create">Adicionar categoria</a>
+          <a class="collapse-item" href="/admin/categoria">Ver categorias</a>
+          <a class="collapse-item" href="/admin/categoria/create">Adicionar categoria</a>
         </div>
       </div>
     </li>
@@ -86,8 +86,26 @@
         <div id="localizacao" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!--<h6 class="collapse-header">Custom Components:</h6>-->
-                <a class="collapse-item" href="/localizacao">Ver localizações</a>
-                <a class="collapse-item" href="/localizacao/create">Adicionar localização</a>
+                <a class="collapse-item" href="/admin/localizacao">Ver localizações</a>
+                <a class="collapse-item" href="/admin/localizacao/create">Adicionar localização</a>
+            </div>
+        </div>
+    </li>
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <div class="sidebar-heading text-muted">
+        Gerir operários
+    </div>
+    <li class="nav-item">
+        <a class="nav-link collapsed text-light" href="#" data-toggle="collapse" data-target="#operarios" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-users"></i>
+            <span>Operários</span>
+        </a>
+        <div id="operarios" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <!--<h6 class="collapse-header">Custom Components:</h6>-->
+                <a class="collapse-item" href="/admin/operario">Ver operários registados</a>
+                <a class="collapse-item" href="/admin/operario/create">Adicionar operário</a>
             </div>
         </div>
     </li>

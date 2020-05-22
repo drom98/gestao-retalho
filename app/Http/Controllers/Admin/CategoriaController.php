@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Categoria;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
@@ -16,7 +17,7 @@ class CategoriaController extends Controller
     public function index()
     {
         $categorias = Categoria::all();
-        return view('categoria.index', [
+        return view('admin.categoria.index', [
             'categorias' => $categorias
         ]);
     }
@@ -93,12 +94,12 @@ class CategoriaController extends Controller
         //
     }
 
-    public function getCategorias()
+    public function getDataTables()
     {
         return Datatables::of(Categoria::query())
             ->addColumn('opcoes', function ($categoria) {
-                $btnEditar = '<a href="/categoria/' . $categoria->id . '/edit" class="btn btn-primary "><i class="fas fa-edit"></i></a>';
-                $btnApagar = '<a style="margin-left: 6px;" href="/categoria/' . $categoria->id . '/edit" class="btn btn-danger "><i class="fas fa-trash"></i></a>';
+                $btnEditar = '<a href="/categoria/' . $categoria->id . '/edit" class="btn btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
+                $btnApagar = '<a style="margin-left: 6px;" href="/categoria/' . $categoria->id . '/edit" class="btn btn-sm btn-danger "><i class="fas fa-trash"></i> Eliminar</a>';
                 return $btnEditar . $btnApagar;
             })
             ->addColumn('created_at', function ($categoria) {

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Localizacao;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -15,7 +16,7 @@ class LocalizacaoController extends Controller
      */
     public function index()
     {
-        return view('localizacao.index');
+        return view('admin.localizacao.index');
     }
 
     /**
@@ -88,7 +89,7 @@ class LocalizacaoController extends Controller
         //
     }
 
-    public function getLocalizacoes()
+    public function getDataTables()
     {
         return Datatables::of(Localizacao::query())->make(true);
     }

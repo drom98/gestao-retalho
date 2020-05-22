@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+
+namespace App\Http\Controllers\Admin;
 
 use App\Categoria;
+use App\Http\Controllers\Controller;
 use App\TipoVidro;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -16,7 +18,7 @@ class TipoVidroController extends Controller
      */
     public function index()
     {
-        return view('tipoVidro.index')->with('tipos', TipoVidro::all());
+        return view('admin.tipoVidro.index')->with('tipos', TipoVidro::all());
     }
 
     /**
@@ -91,7 +93,7 @@ class TipoVidroController extends Controller
         //
     }
 
-    public function getTiposVidro()
+    public function getDataTables()
     {
         return Datatables::of(TipoVidro::query())->make(true);
     }

@@ -1,7 +1,7 @@
 @extends('admin.dashboard.layouts.app')
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">Categorias</h1>
+    <h1 class="h3 mb-4 text-gray-800">Operários registados</h1>
 
     @isset ($sucesso)
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -22,37 +22,37 @@
                 <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
 
                 </div>
-                <table class="table table-bordered" id="tabela-categorias" width="100%">
+                <table class="table table-bordered" id="tabela-tiposVidro" width="100%">
                     <thead>
                     <tr>
                         <th>#</th>
                         <th>Nome</th>
+                        <th>Nome de utilizador</th>
+                        <th>Email</th>
                         <th>Data</th>
-                        <th>Opções</th>
                     </tr>
                     </thead>
                 </table>
             </div>
         </div>
     </div>
-
-
-@endsection
+@stop
 @push('datatables')
     <script>
         $(function() {
-            $('#tabela-categorias').DataTable({
+            $('#tabela-tiposVidro').DataTable({
                 language: {
                     url: '//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese.json'
                 },
                 processing: true,
                 serverSide: true,
-                ajax: '{!! route('categorias.get') !!}',
+                ajax: '{!! route('admin.operario.get') !!}',
                 columns: [
                     { data: 'id', name: 'id' },
-                    { data: 'nome', name: 'nome' },
-                    { data: 'created_at', name: 'created_at'},
-                    { data: 'opcoes', name: 'opcoes' },
+                    { data: 'name', name: 'name' },
+                    { data: 'username', name: 'username' },
+                    { data: 'email', name: 'email' },
+                    { data: 'created_at', name: 'created_at'}
                 ]
             });
         });

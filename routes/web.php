@@ -40,8 +40,21 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
     Route::get('/', 'HomeController@index')->name('home');
 
     Route::middleware('auth:admin')->group(function () {
+
         Route::get('/retalho/get', 'RetalhoController@getDataTables')->name('retalho.get');
         Route::resource('retalho', 'RetalhoController');
+
+        Route::get('/tiposVidro/get', 'TipoVidroController@getDataTables')->name('tipoVidro.get');
+        Route::resource('tipoVidro', 'TipoVidroController');
+
+        Route::get('/categoria/get', 'CategoriaController@getDataTables')->name('categoria.get');
+        Route::resource('categoria', 'CategoriaController');
+
+        Route::get('/localizacao/get', 'LocalizacaoController@getDataTables')->name('localizacao.get');
+        Route::resource('localizacao', 'LocalizacaoController');
+
+        Route::get('/operario/get', 'OperarioController@getDataTables')->name('operario.get');
+        Route::resource('operario', 'OperarioController');
     });
 
     Route::namespace('Auth')->group(function(){
