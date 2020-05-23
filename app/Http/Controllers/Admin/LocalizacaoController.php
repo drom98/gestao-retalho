@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Localizacao;
 use Illuminate\Http\Request;
@@ -91,6 +92,16 @@ class LocalizacaoController extends Controller
 
     public function getDataTables()
     {
-        return Datatables::of(Localizacao::query())->make(true);
+        return Datatables::of(Localizacao::query())
+            ->addColumn('opcoes', function ($categoria) {
+                $btnEditar = '<a href="/categoria/' . $categoria->id . '/edit" class="btn btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
+                $btnApagar = '<a style="margin-left: 6px;" href="/categoria/' . $categoria->id . '/edit" class="btn btn-sm btn-danger "><i class="fas fa-trash"></i> Eliminar</a>';
+                return $btnEditar . $btnApagar;
+            })
+            ->addColumn('created_at', function ($categoria) {
+                return Helper::getLocalizedDate($categoria);
+            })
+            ->rawColumns(['opcoes'])
+            ->make(true);
     }
 }

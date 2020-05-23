@@ -4,6 +4,7 @@
 namespace App\Http\Services;
 
 
+use App\Helpers\Helper;
 use App\Retalho;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -45,7 +46,7 @@ class RetalhoService
                 return $retalho->Localizacao->nome;
             })
             ->addColumn('created_at', function ($retalho) {
-                return $retalho->created_at->format('d M Y');
+                return Helper::getLocalizedDate($retalho);
             })
             ->addColumn('opcoes', function ($retalho) {
                 $btnUsar = '<a href="/admin/retalho/' . $retalho->id . '/edit" class="btn btn-sm btn-success "><i class="fas fa-check"></i> Usar</a>';

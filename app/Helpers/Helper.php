@@ -10,6 +10,6 @@ class Helper
 {
     public static function getLocalizedDate($model)
     {
-        return Carbon::parse($model->created_at)->locale('pt')->timezone('Europe/London')->isoFormat('lll');
+        return Carbon::parse($model->created_at)->locale('pt_PT')->timezone('Europe/Lisbon')->isoFormat('LLL');
     }
 }

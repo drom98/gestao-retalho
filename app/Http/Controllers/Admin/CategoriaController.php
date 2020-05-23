@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Categoria;
+use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -103,7 +104,7 @@ class CategoriaController extends Controller
                 return $btnEditar . $btnApagar;
             })
             ->addColumn('created_at', function ($categoria) {
-                return $categoria->created_at->format('d M Y');
+                return Helper::getLocalizedDate($categoria);
             })
             ->rawColumns(['opcoes'])
             ->make(true);

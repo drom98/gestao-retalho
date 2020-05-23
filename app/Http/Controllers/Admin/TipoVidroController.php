@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Categoria;
+use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\TipoVidro;
 use Illuminate\Http\Request;
@@ -98,7 +99,7 @@ class TipoVidroController extends Controller
     {
         return Datatables::of(TipoVidro::query())
             ->addColumn('created_at', function ($tipoVidro) {
-                return $tipoVidro->created_at->format('d M Y');
+                return Helper::getLocalizedDate($tipoVidro);
             })
             ->addColumn('opcoes', function ($tipoVidro) {
                 $btnEditar = '<a style="margin-left: 6px;" href="/admin/tipoVidro/' . $tipoVidro->id . '/edit" class="btn btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
