@@ -4,11 +4,13 @@
 namespace App\Http\Controllers\Admin;
 
 
+use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Http\Services\RetalhoService;
 use App\Localizacao;
 use App\Retalho;
 use App\TipoVidro;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
@@ -59,13 +61,11 @@ class RetalhoController extends Controller
                 return $retalho->Localizacao->nome;
             })
             ->addColumn('created_at', function ($retalho) {
-                return $retalho->created_at->format('d M Y');
+                return Helper::getLocalizedDate($retalho);
             })
             ->addColumn('opcoes', function ($retalho) {
-                $btnUsar = '<a href="/admin/retalho/' . $retalho->id . '/edit" class="btn btn-sm btn-success "><i class="fas fa-check"></i> Usar</a>';
-                $btnEditar = '<a style="margin-left: 6px;" href="/admin/retalho/' . $retalho->id . '/edit" class="btn btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
                 $btnApagar = '<a style="margin-left: 6px;" href="/admin/retalho/' . $retalho->id . '/edit" class="btn btn-sm btn-danger "><i class="fas fa-trash"></i> Eliminar</a>';
-                return $btnUsar . $btnEditar . $btnApagar;
+                return $btnApagar;
             })
             ->rawColumns(['opcoes'])
             ->make(true);
