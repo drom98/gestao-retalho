@@ -36,6 +36,11 @@ class RetalhoService
         );
     }
 
+    public function delete($id)
+    {
+        return Retalho::destroy($id);
+    }
+
     public function getDataTables()
     {
         return Datatables::of(Retalho::query())
@@ -51,7 +56,7 @@ class RetalhoService
             ->addColumn('opcoes', function ($retalho) {
                 $btnUsar = '<a href="/admin/retalho/' . $retalho->id . '/edit" class="btn btn-sm btn-success "><i class="fas fa-check"></i> Usar</a>';
                 $btnEditar = '<a style="margin-left: 6px;" href="/admin/retalho/' . $retalho->id . '/edit" class="btn btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
-                $btnApagar = '<a style="margin-left: 6px;" href="/admin/retalho/' . $retalho->id . '/edit" class="btn btn-sm btn-danger "><i class="fas fa-trash"></i> Eliminar</a>';
+                $btnApagar = '<a style="margin-left: 6px;" href="/admin/retalho/' . $retalho->id . '/delete" class="btn btn-sm btn-danger "><i class="fas fa-trash"></i> Eliminar</a>';
                 return $btnUsar . $btnEditar . $btnApagar;
             })
             ->rawColumns(['opcoes'])

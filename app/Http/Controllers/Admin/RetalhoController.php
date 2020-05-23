@@ -46,6 +46,18 @@ class RetalhoController extends Controller
         return $this->retalhoService->store($request);
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Retalho  $retalho
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Retalho $retalho)
+    {
+        dd($retalho);
+        return $this->retalhoService->delete($retalho->id);
+    }
+
     public function getViewUsado()
     {
         return view('admin.retalho.usado');
@@ -64,7 +76,7 @@ class RetalhoController extends Controller
                 return Helper::getLocalizedDate($retalho);
             })
             ->addColumn('opcoes', function ($retalho) {
-                $btnApagar = '<a style="margin-left: 6px;" href="/admin/retalho/' . $retalho->id . '/edit" class="btn btn-sm btn-danger "><i class="fas fa-trash"></i> Eliminar</a>';
+                $btnApagar = '<a style="margin-left: 6px;" href="/admin/retalho/delete/'. $retalho->id .'" class="btn btn-sm btn-danger "><i class="fas fa-trash"></i> Eliminar</a>';
                 return $btnApagar;
             })
             ->rawColumns(['opcoes'])
