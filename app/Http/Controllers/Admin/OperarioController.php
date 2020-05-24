@@ -7,6 +7,8 @@ namespace App\Http\Controllers\Admin;
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\DataTables;
 
 class OperarioController extends Controller
@@ -14,6 +16,21 @@ class OperarioController extends Controller
     public function index()
     {
         return view('admin.operario.index');
+    }
+
+    public function create()
+    {
+        return view('admin.operario.create');
+    }
+
+    public function store(Request $request)
+    {
+        return User::create([
+            'name' => $request->nome,
+            'email' => $request->email,
+            'username' => $request->username,
+            'password' => Hash::make($request->password)
+        ]);
     }
 
     public function getDataTables()
