@@ -99,15 +99,6 @@
     <script src="{{asset('assets/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
-    <script src="{{ url('/admin/main.js') }}"></script>
-
-    <script>
-        $(function() {
-            $('#myModal').on('shown.bs.modal', function () {
-                $('#myInput').trigger('focus')
-            })
-        })
-    </script>
 
 @stack('datatables')
 @stack('select-search')

@@ -11,4 +11,4 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/admin/main.js', 'public/admin/js');
+//mix.js('resources/js/admin/main.js', 'public/admin/js');
