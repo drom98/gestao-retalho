@@ -13,6 +13,7 @@
             <th>Tipo Vidro</th>
             <th>Localizaçao</th>
             <th>Data</th>
+            <th>User</th>
             <th>Opções</th>
         </tr>
         </thead>

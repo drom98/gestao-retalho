@@ -24,6 +24,32 @@
 </head>
 
 <body id="page-top">
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Usar retalho</h5>
+                <div class="form-group">
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <label for="num_of">Número OF:</label>
+                    <input name="num_of" id="num_of" step="1" type="number" class="form-control" placeholder="Número OF" value="{{ old('num_of') }}">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
     <div id="wrapper">
         @include('admin.dashboard.includes.sidebar')
         <div id="content-wrapper" class="d-flex flex-column">
@@ -73,6 +99,15 @@
     <script src="{{asset('assets/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ url('/admin/main.js') }}"></script>
+
+    <script>
+        $(function() {
+            $('#myModal').on('shown.bs.modal', function () {
+                $('#myInput').trigger('focus')
+            })
+        })
+    </script>
 
 @stack('datatables')
 @stack('select-search')

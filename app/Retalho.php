@@ -20,6 +20,7 @@ class Retalho extends Model
         'id_localizacao',
         'num_of',
         'usado',
+        'id_user'
     ];
 
     public function tipoVidro()
@@ -30,5 +31,10 @@ class Retalho extends Model
     public function localizacao()
     {
         return $this->belongsTo('App\Localizacao', 'id_localizacao');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'id_user');
     }
 }

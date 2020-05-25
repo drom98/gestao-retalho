@@ -16,6 +16,9 @@
     <div class="card shadow mb-4">
         <div class="card-body">
             @include('includes.tabelaRetalho')
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                Usar
+            </button>
         </div>
     </div>
 @endsection
@@ -38,9 +41,11 @@
                     { data: 'id_tipoVidro', name: 'id_tipoVidro' },
                     { data: 'id_localizacao', name: 'id_localizacao' },
                     { data: 'created_at', name: 'created_at', orderable: false},
+                    { data: 'id_user', name: 'id_user' },
                     { data: 'opcoes', name: 'opcoes'}
                 ]
             });
         });
+
     </script>
 @endpush
