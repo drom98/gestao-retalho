@@ -19,6 +19,7 @@ class Retalho extends Model
         'id_tipoVidro',
         'id_localizacao',
         'num_of',
+        'usado',
     ];
 
     public function tipoVidro()

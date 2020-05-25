@@ -22,7 +22,7 @@
                     Adicionar nova localização
                 </div>
                 <div class="card-body">
-                    <form class="user" method="POST" action="/localizacao">
+                    <form class="user" method="POST" action="/admin/localizacao">
                         @csrf
                         <div class="form-group">
                             <label for="nome">Nome:</label>

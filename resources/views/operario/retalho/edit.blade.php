@@ -22,7 +22,7 @@
                       Editar retalho nº {{ $retalho-> id }}
                     </div>
                     <div class="card-body">
-                        <form class="user" method="POST" action="{{ route('admin.retalho.update', $retalho->id) }}">
+                        <form class="user" method="POST" action="{{ route('retalho.update', $retalho->id) }}">
                             @csrf
                             @method('PATCH')
                             <div class="form-group">

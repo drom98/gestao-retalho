@@ -43,7 +43,35 @@ class RetalhoController extends Controller
 
     public function store(Request $request)
     {
-        return $this->retalhoService->store($request);
+        $this->retalhoService->store($request);
+        return redirect(route('admin.retalho.index'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Retalho  $retalho
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit(Retalho $retalho)
+    {
+        return view('admin.retalho.edit', [
+            'retalho' => $retalho,
+            'tiposVidro' => TipoVidro::all(),
+            'localizacoes' => Localizacao::all()
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Retalho  $retalho
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Retalho $retalho)
+    {
+        $this->retalhoService->update($request, $retalho);
     }
 
     /**

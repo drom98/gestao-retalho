@@ -1,18 +1,18 @@
 <div class="form-group">
     <label for="lote">Lote:</label>
-    <input name="lote" id="lote" step="1" type="number" class="form-control" placeholder="Lote">
+    <input name="lote" id="lote" step="1" type="number" class="form-control" placeholder="Lote" value="{{ old('lote') }}">
 </div>
 <div class="form-group">
     <label for="num_of">Número OF:</label>
-    <input name="num_of" id="num_of" step="1" type="number" class="form-control" placeholder="Número OF">
+    <input name="num_of" id="num_of" step="1" type="number" class="form-control" placeholder="Número OF" value="{{ old('num_of') }}">
 </div>
 <div class="form-group">
     <label for="comprimento">Comprimento(mm):</label>
-    <input name="comprimento" id="comprimento" step="1" type="number" class="form-control" placeholder="Comprimento(mm)">
+    <input name="comprimento" id="comprimento" step="1" type="number" class="form-control" placeholder="Comprimento(mm)" value="{{ old('comprimento') }}">
 </div>
 <div class="form-group">
     <label for="largura">Largura(mm):</label>
-    <input name="largura" id="largura" step="1" type="number" class="form-control" placeholder="Largura(mm)">
+    <input name="largura" id="largura" step="1" type="number" class="form-control" placeholder="Largura(mm)" value="{{ old('largura') }}">
 </div>
 <div class="form-group">
     <label for="largura">Tipo vidro:</label>

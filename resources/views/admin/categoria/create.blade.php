@@ -22,7 +22,7 @@
                     Adicionar nova categoria
                 </div>
                 <div class="card-body">
-                    <form class="user" method="POST" action="/categoria">
+                    <form class="user" method="POST" action="/admin/categoria">
                         @csrf
                         <div class="form-group">
                             <label for="comprimento">Nome:</label>

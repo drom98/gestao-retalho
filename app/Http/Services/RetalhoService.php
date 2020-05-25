@@ -8,32 +8,44 @@ use App\Helpers\Helper;
 use App\Retalho;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
+use function GuzzleHttp\Promise\all;
 
 class RetalhoService
 {
     public function store(Request $request)
     {
-        $request->validate([
-            'lote' => 'required|numeric',
-            'num_of' => 'required|numeric',
-            'comprimento'=> 'required|numeric',
-            'largura'=> 'required|numeric',
-            'area'=> 'required|numeric|gt:0.4'
-        ]);
+        $this->validate($request);
 
         $area = ($request->largura * $request->comprimento)/1000000;
 
         return Retalho::create(
             [
+                'usado' => 0,
                 'num_lote' => $request->lote,
                 'num_of' => $request->num_of,
                 'comprimento' => $request->comprimento,
                 'largura' => $request->largura,
                 'area' => $area,
                 'id_tipoVidro' => $request->tipoVidro,
-                'id_localizacao' => $request->localizacao
+                'id_localizacao' => $request->localizacao,
             ]
         );
+    }
+
+    public function update($request, $id)
+    {
+        $this->validate($request);
+
+        $retalho = Retalho::find($id);
+        dd($retalho);
+        $retalho->num_of = $request->num_of;
+        $retalho->save();
+    }
+
+    public function usar($id)
+    {
+        $retalho = Retalho::find($id)->firstOrFail();
+        dd($retalho);
     }
 
     public function delete($id)
@@ -43,7 +55,7 @@ class RetalhoService
 
     public function getDataTables()
     {
-        return Datatables::of(Retalho::query())
+        return Datatables::of(Retalho::where('usado', 0))
             ->addColumn('id_tipoVidro', function ($retalho) {
                 return $retalho->TipoVidro->nome;
             })
@@ -63,5 +75,15 @@ class RetalhoService
             ->make(true);
     }
 
+    private function validate($request)
+    {
+        return $request->validate([
+            'lote' => 'required|numeric',
+            'num_of' => 'required|numeric',
+            'comprimento'=> 'required|numeric',
+            'largura'=> 'required|numeric',
+            'area'=> 'required|numeric|gt:0.9'
+        ]);
+    }
 
 }
