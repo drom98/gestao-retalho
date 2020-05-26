@@ -16,9 +16,6 @@
     <div class="card shadow mb-4">
         <div class="card-body">
             @include('includes.tabelaRetalho')
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-                Usar
-            </button>
         </div>
     </div>
 @endsection
