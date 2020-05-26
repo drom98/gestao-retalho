@@ -35,15 +35,18 @@ class RetalhoUsadoService
 
     public function getDataTables()
     {
-        return DataTables::of(Retalho::where('usado', 1)->get())
+        return DataTables::of(RetalhoUsado::query())
             ->addColumn('id_tipoVidro', function ($retalho) {
-                return $retalho->TipoVidro->nome;
+                return $retalho->Retalho->TipoVidro->nome;
             })
             ->addColumn('id_localizacao', function ($retalho) {
-                return $retalho->Localizacao->nome;
+                return $retalho->Retalho->Localizacao->nome;
             })
             ->addColumn('id_user', function ($retalho) {
                 return $retalho->User->username;
+            })
+            ->addColumn('id_seccao', function ($retalho) {
+                return $retalho->Seccao->nome;
             })
             ->addColumn('created_at', function ($retalho) {
                 return Helper::getLocalizedDate($retalho);

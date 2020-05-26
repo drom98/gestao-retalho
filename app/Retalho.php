@@ -37,4 +37,9 @@ class Retalho extends Model
     {
         return $this->belongsTo('App\User', 'id_user');
     }
+
+    public function usados()
+    {
+        return $this->hasMany('App\RetalhoUsado', 'id', 'id_retalho');
+    }
 }

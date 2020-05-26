@@ -19,4 +19,19 @@ class RetalhoUsado extends Model
         'id_retalho',
         'id_user'
     ];
+
+    public function retalho()
+    {
+        return $this->belongsTo('App\Retalho', 'id_retalho');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'id_user');
+    }
+
+    public function seccao()
+    {
+        return $this->belongsTo('App\Seccao', 'id_seccao');
+    }
 }

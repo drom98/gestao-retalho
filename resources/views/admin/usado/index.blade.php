@@ -13,7 +13,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-body">
-            @include('includes.tabelaRetalho')
+            @include('includes.tabelaRetalhoUsado')
         </div>
     </div>
 @endsection
@@ -29,15 +29,16 @@
                 ajax: '{!! route('admin.usado.get') !!}',
                 columns: [
                     { data: 'id', name: 'id' },
-                    { data: 'num_lote', name: 'num_lote' },
                     { data: 'comprimento', name: 'comprimento' },
                     { data: 'largura', name: 'largura' },
                     { data: 'area', name: 'area' },
                     { data: 'id_tipoVidro', name: 'id_tipoVidro' },
-                    { data: 'id_localizacao', name: 'id_localizacao' },
-                    { data: 'created_at', name: 'created_at', orderable: false},
+                    { data: 'id_seccao', name: 'id_seccao' },
+                    { data: 'obs', name: 'obs', orderable: false },
                     { data: 'id_user', name: 'id_user', orderable: false },
-                    { data: 'opcoes', name: 'opcoes'}
+                    { data: 'num_of', name: 'num_of', orderable: false},
+                    { data: 'created_at', name: 'created_at', orderable: false},
+                    { data: 'opcoes', name: 'opcoes', orderable: false}
                 ]
             });
         });

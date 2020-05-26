@@ -42,7 +42,7 @@ class RetalhoUsadoController extends Controller
     {
         $this->retalhoUsadoService->store($request);
 
-        return redirect(route('admin.usado.index'))->with('message', 'Retalho marcado como usado.');
+        return redirect(route('admin.usado.index'))->with('sucesso', 'Retalho marcado como usado.');
     }
 
     /**
