@@ -25,12 +25,14 @@ class OperarioController extends Controller
 
     public function store(Request $request)
     {
-        return User::create([
+        User::create([
             'name' => $request->nome,
             'email' => $request->email,
             'username' => $request->username,
             'password' => Hash::make($request->password)
         ]);
+
+        return redirect(route('admin.operario.index'))->with('sucesso', 'Utilizador adicionado.');
     }
 
     public function getDataTables()

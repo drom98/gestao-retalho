@@ -42,7 +42,7 @@ class LocalizacaoController extends Controller
             'nome' => $request->nome
         ]);
 
-        return self::index()->with('sucesso', 'Nova localização adicionada.');
+        return redirect(route('admin.localizacao.index'))->with('sucesso', 'Nova localização adicionada.');
     }
 
     /**

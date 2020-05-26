@@ -47,7 +47,7 @@ class TipoVidroController extends Controller
             ]
         );
 
-        return self::index()->with('sucesso', 'Novo tipo de vidro adicionado.');
+        return redirect(route('admin.tipoVidro.index'))->with('sucesso', 'Novo tipo de vidro adicionado.');
     }
 
     /**

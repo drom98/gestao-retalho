@@ -3,9 +3,9 @@
 @section('content')
     <h1 class="h3 mb-4 text-gray-800">Retalho usado</h1>
 
-    @isset ($sucesso)
+    @isset ($message)
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{$sucesso}}
+            {{$message}}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -38,6 +38,7 @@
                     { data: 'id_tipoVidro', name: 'id_tipoVidro' },
                     { data: 'id_localizacao', name: 'id_localizacao' },
                     { data: 'created_at', name: 'created_at', orderable: false},
+                    { data: 'id_user', name: 'id_user', orderable: false },
                     { data: 'opcoes', name: 'opcoes'}
                 ]
             });

@@ -4,14 +4,12 @@
     @include('includes.modalUsarRetalho')
     <h1 class="h3 mb-4 text-gray-800">Retalho</h1>
 
-    @isset ($sucesso)
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{$sucesso}}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    @endisset
+    @if (session('sucesso'))
+        @include('includes.mensagemSucesso')
+    @endif
+    @if (session('erro'))
+        @include('includes.mensagemSucesso')
+    @endif
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">

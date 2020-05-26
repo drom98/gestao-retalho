@@ -95,18 +95,18 @@
     <hr class="sidebar-divider d-none d-md-block">
 
     <div class="sidebar-heading text-muted">
-        Gerir operários
+        Gerir utilizadores
     </div>
     <li class="nav-item">
         <a class="nav-link collapsed text-light" href="#" data-toggle="collapse" data-target="#operarios" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-users"></i>
-            <span>Operários</span>
+            <span>Utilizadores</span>
         </a>
         <div id="operarios" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!--<h6 class="collapse-header">Custom Components:</h6>-->
-                <a class="collapse-item" href="/admin/operario">Ver operários registados</a>
-                <a class="collapse-item" href="/admin/operario/create">Adicionar operário</a>
+                <a class="collapse-item" href="/admin/operario">Ver utilizadores</a>
+                <a class="collapse-item" href="/admin/operario/create">Adicionar utilizador</a>
             </div>
         </div>
     </li>

@@ -45,7 +45,7 @@ class RetalhoController extends Controller
     public function store(Request $request)
     {
         $this->retalhoService->store($request);
-        return redirect(route('admin.retalho.index'));
+        return redirect(route('admin.retalho.index'))->with('sucesso', 'Retalho adicionado.');
     }
 
     /**
@@ -73,6 +73,8 @@ class RetalhoController extends Controller
     public function update(Request $request, Retalho $retalho)
     {
         $this->retalhoService->update($request, $retalho);
+
+        return redirect(route('admin.retalho.index'))->with('sucesso', 'Retalho atualizado.');
     }
 
     /**
