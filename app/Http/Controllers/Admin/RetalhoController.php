@@ -101,6 +101,9 @@ class RetalhoController extends Controller
             ->addColumn('id_localizacao', function ($retalho) {
                 return $retalho->Localizacao->nome;
             })
+            ->addColumn('id_user', function ($retalho) {
+                return $retalho->User->username;
+            })
             ->addColumn('created_at', function ($retalho) {
                 return Helper::getLocalizedDate($retalho);
             })

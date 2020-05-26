@@ -1,7 +1,7 @@
 <!-- Sidebar -->
 <ul class="navbar-nav bg-dark sidebar text-light accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center text-light" href="/home">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center text-light" href="/admin">
       <div class="sidebar-brand-text ">Gestão de Retalho</div>
     </a>
 
