@@ -29,7 +29,7 @@ class RetalhoUsadoController extends Controller
      */
     public function index()
     {
-        //return view('');
+        return view('admin.usado.index');
     }
 
     /**
@@ -42,7 +42,7 @@ class RetalhoUsadoController extends Controller
     {
         $this->retalhoUsadoService->store($request);
 
-        return redirect(route('admin.retalho.usado.view'))->with('message', 'Retalho marcado como usado.');
+        return redirect(route('admin.usado.index'))->with('message', 'Retalho marcado como usado.');
     }
 
     /**
@@ -88,5 +88,10 @@ class RetalhoUsadoController extends Controller
     public function destroy(RetalhoUsado $retalhoUsado)
     {
         //
+    }
+
+    public function getUsado()
+    {
+        return $this->retalhoUsadoService->getDataTables();
     }
 }

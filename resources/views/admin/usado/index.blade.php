@@ -3,14 +3,12 @@
 @section('content')
     <h1 class="h3 mb-4 text-gray-800">Retalho usado</h1>
 
-    @isset ($message)
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{$message}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endisset
+    @if (session('sucesso'))
+        @include('includes.mensagemSucesso')
+    @endif
+    @if (session('erro'))
+        @include('includes.mensagemSucesso')
+    @endif
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -28,7 +26,7 @@
                 },
                 processing: true,
                 serverSide: true,
-                ajax: '{!! route('admin.retalho.usado') !!}',
+                ajax: '{!! route('admin.usado.get') !!}',
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'num_lote', name: 'num_lote' },

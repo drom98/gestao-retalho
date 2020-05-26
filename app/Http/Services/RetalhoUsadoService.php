@@ -4,9 +4,11 @@
 namespace App\Http\Services;
 
 
+use App\Helpers\Helper;
 use App\Retalho;
 use App\RetalhoUsado;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class RetalhoUsadoService
 {
@@ -29,5 +31,28 @@ class RetalhoUsadoService
 
         $retalho->usado = 1;
         $retalho->save();
+    }
+
+    public function getDataTables()
+    {
+        return DataTables::of(Retalho::where('usado', 1)->get())
+            ->addColumn('id_tipoVidro', function ($retalho) {
+                return $retalho->TipoVidro->nome;
+            })
+            ->addColumn('id_localizacao', function ($retalho) {
+                return $retalho->Localizacao->nome;
+            })
+            ->addColumn('id_user', function ($retalho) {
+                return $retalho->User->username;
+            })
+            ->addColumn('created_at', function ($retalho) {
+                return Helper::getLocalizedDate($retalho);
+            })
+            ->addColumn('opcoes', function ($retalho) {
+                $btnApagar = '<a style="margin-left: 6px;" href="/admin/retalho/delete/'. $retalho->id .'" class="btn btn-sm btn-danger "><i class="fas fa-trash"></i> Eliminar</a>';
+                return $btnApagar;
+            })
+            ->rawColumns(['opcoes'])
+            ->make(true);
     }
 }
