@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Categoria;
 use App\Http\Controllers\Controller;
 use App\Retalho;
+use App\RetalhoUsado;
 use App\TipoVidro;
 use Illuminate\Http\Request;
 
@@ -30,7 +31,7 @@ class HomeController extends Controller
     public function index(){
         return view('admin.home', [
             'qtRetalho' => Retalho::count(),
-            'qtTiposVidro' => TipoVidro::count(),
+            'qtRetalhoUsado' => RetalhoUsado::count(),
             'qtCategorias' => Categoria::count()
         ]);
     }
