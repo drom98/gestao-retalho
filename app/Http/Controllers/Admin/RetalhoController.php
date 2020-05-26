@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Services\RetalhoService;
 use App\Localizacao;
 use App\Retalho;
+use App\Seccao;
 use App\TipoVidro;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class RetalhoController extends Controller
 
     public function index()
     {
-        return view('admin.retalho.index');
+        return view('admin.retalho.index')->with('seccoes', Seccao::all());
     }
 
     public function create()
@@ -114,5 +115,10 @@ class RetalhoController extends Controller
     public function getDataTables()
     {
         return $this->retalhoService->getDataTables();
+    }
+
+    public function getRetalho($id)
+    {
+        return $this->retalhoService->getRetalho($id);
     }
 }

@@ -37,12 +37,43 @@
                     { data: 'area', name: 'area' },
                     { data: 'id_tipoVidro', name: 'id_tipoVidro' },
                     { data: 'id_localizacao', name: 'id_localizacao' },
-                    { data: 'created_at', name: 'created_at', orderable: false},
-                    { data: 'id_user', name: 'id_user' },
-                    { data: 'opcoes', name: 'opcoes'}
+                    { data: 'created_at', name: 'created_at'},
+                    { data: 'id_user', name: 'id_user', orderable: false },
+                    { data: 'opcoes', name: 'opcoes', orderable: false}
                 ]
             });
         });
 
+    </script>
+@endpush
+
+@push('select-search')
+    <script !src="">
+
+        function getRetalho(id) {
+            $.ajax({
+                url: "/admin/retalho/usar/get/" + id,
+                type: "get",
+                dataType: "json",
+                success: function (res) {
+                    insertData(res);
+                }
+            });
+        }
+
+        function insertData(res) {
+            $('#comprimento').val(res.comprimento);
+            $('#comprimento').attr('min', res.comprimento);
+            $('#largura').val(res.largura);
+            $('#largura').attr('min', res.largura);
+        }
+
+        $(document).ready(function() {
+            $('.seccaoSelect').select2({theme: 'bootstrap4'});
+
+            $('#btnUsarRetalho').click(function () {
+                console.log('cenas');
+            });
+        });
     </script>
 @endpush
