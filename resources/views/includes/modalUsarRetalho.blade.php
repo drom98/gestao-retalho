@@ -1,14 +1,16 @@
 <div class="modal fade" id="modalUsarRetalho" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Usar retalho</h5>
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="" name="usarRetalho">
+                <form action="{{ route('admin.usado.store') }}" method="POST" name="usarRetalho">
+                    @csrf
+                    <input type="hidden" name="id_retalho" id="id_retalho">
                     <div class="form-group">
                         <label for="num_of">Número OF:</label>
                         <input name="num_of" id="num_of" type="text" class="form-control" placeholder="Número OF" value="{{ old('num_of') }}">
@@ -37,11 +39,15 @@
                             @endforeach
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="obs">Justificação de requisição:</label>
+                        <textarea class="form-control" id="obs" name="obs" rows="3"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button id="btnConfirmarUsar" type="submit" class="btn btn-success">Confirmar</button>
+                    </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-dark" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success">Confirmar</button>
             </div>
         </div>
     </div>

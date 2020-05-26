@@ -50,7 +50,7 @@ class RetalhoService
     public function usar($id)
     {
         $retalho = Retalho::find($id)->firstOrFail();
-        dd($retalho);
+
     }
 
     public function delete($id)

@@ -15,6 +15,7 @@ class RetalhoUsado extends Model
         'ref_obra',
         'num_of',
         'obs',
-        'id_seccao'
+        'id_seccao',
+        'id_retalho'
     ];
 }

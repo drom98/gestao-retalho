@@ -121,4 +121,9 @@ class RetalhoController extends Controller
     {
         return $this->retalhoService->getRetalho($id);
     }
+
+    public function usarRetalho($id)
+    {
+        return $this->retalhoService->usar($id);
+    }
 }

@@ -5,7 +5,7 @@ window.addEventListener('load', (event) => {
 
     let valorComprimento = comprimento.value;
     let valorLargura = largura.value;
-    let valorArea = valorComprimento*valorLargura;
+    let valorArea = area.value = (valorComprimento*valorLargura)/1000000;
 
     comprimento.addEventListener('keyup', event => {
         valorComprimento = comprimento.value;
@@ -22,4 +22,26 @@ window.addEventListener('load', (event) => {
         area.value = valorArea;
     }
 });
+
+
+function getRetalho(id) {
+    $('.modal-title').text('Usar retalho nº' + id);
+    $('#id_retalho').val(id);
+    $.ajax({
+        url: "/admin/retalho/usar/get/" + id,
+        type: "get",
+        dataType: "json",
+        success: function (res) {
+            insertData(res);
+        }
+    });
+}
+
+function insertData(res) {
+    $('#btnConfirmarUsar').attr('data-id', res.id);
+    $('#comprimento').val(res.comprimento);
+    $('#comprimento').attr('max', res.comprimento);
+    $('#largura').val(res.largura);
+    $('#largura').attr('max', res.largura);
+}
 

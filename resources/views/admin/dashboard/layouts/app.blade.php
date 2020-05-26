@@ -24,7 +24,6 @@
 </head>
 
 <body id="page-top">
-    @include('includes.modalUsarRetalho')
     <div id="wrapper">
         @include('admin.dashboard.includes.sidebar')
         <div id="content-wrapper" class="d-flex flex-column">

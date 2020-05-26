@@ -1,6 +1,7 @@
 @extends('admin.dashboard.layouts.app')
 
 @section('content')
+    @include('includes.modalUsarRetalho')
     <h1 class="h3 mb-4 text-gray-800">Retalho</h1>
 
     @isset ($sucesso)
@@ -49,31 +50,8 @@
 
 @push('select-search')
     <script !src="">
-
-        function getRetalho(id) {
-            $.ajax({
-                url: "/admin/retalho/usar/get/" + id,
-                type: "get",
-                dataType: "json",
-                success: function (res) {
-                    insertData(res);
-                }
-            });
-        }
-
-        function insertData(res) {
-            $('#comprimento').val(res.comprimento);
-            $('#comprimento').attr('min', res.comprimento);
-            $('#largura').val(res.largura);
-            $('#largura').attr('min', res.largura);
-        }
-
         $(document).ready(function() {
             $('.seccaoSelect').select2({theme: 'bootstrap4'});
-
-            $('#btnUsarRetalho').click(function () {
-                console.log('cenas');
-            });
         });
     </script>
 @endpush

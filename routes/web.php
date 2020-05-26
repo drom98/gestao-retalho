@@ -37,6 +37,8 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
         Route::get('/retalho/usar/get/{id}', 'RetalhoController@getRetalho')->name('usar.get');
         Route::resource('retalho', 'RetalhoController');
 
+        Route::resource('usado', 'RetalhoUsadoController');
+
         Route::get('/tiposVidro/get', 'TipoVidroController@getDataTables')->name('tipoVidro.get');
         Route::resource('tipoVidro', 'TipoVidroController');
 
