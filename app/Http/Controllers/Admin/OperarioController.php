@@ -35,6 +35,44 @@ class OperarioController extends Controller
         return redirect(route('admin.operario.index'))->with('sucesso', 'Utilizador adicionado.');
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Localizacao  $localizacao
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($user)
+    {
+        $user = User::findOrFail($user);
+
+        return view('admin.operario.edit')->with('user', $user);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Localizacao  $localizacao
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function update(Request $request, $user)
+    {
+        $request->validate([
+            'username' => 'unique:users',
+            'email' => 'unique:users'
+        ]);
+
+        $user = User::findOrFail($user);
+
+        $user->update([
+            'name' => $request->nome,
+            'username' => $request->username,
+            'email' => $request->email
+        ]);
+
+        return redirect(route('admin.operario.index'))->with('sucesso', 'Utilizador atualizado.');
+    }
+
     public function getDataTables()
     {
         return Datatables::of(User::query())
