@@ -68,13 +68,13 @@ class RetalhoController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Retalho  $retalho
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, Retalho $retalho)
     {
         $this->retalhoService->update($request, $retalho);
 
-        return redirect(route('admin.retalho.index'))->with('sucesso', 'Retalho atualizado.');
+        return redirect(route('admin.retalho.index'))->with('sucesso', 'Retalho Nº'.$retalho->id.' atualizado.');
     }
 
     /**
