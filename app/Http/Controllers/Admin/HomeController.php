@@ -8,6 +8,7 @@ use App\Retalho;
 use App\RetalhoUsado;
 use App\TipoVidro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -30,7 +31,7 @@ class HomeController extends Controller
      */
     public function index(){
         return view('admin.home', [
-            'qtRetalho' => Retalho::count(),
+            'qtRetalho' => DB::table('retalhos')->where('usado', 0)->count(),
             'qtRetalhoUsado' => RetalhoUsado::count(),
             'qtCategorias' => Categoria::count()
         ]);
