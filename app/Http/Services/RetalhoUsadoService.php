@@ -8,6 +8,7 @@ use App\Helpers\Helper;
 use App\Retalho;
 use App\RetalhoUsado;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 
 class RetalhoUsadoService
@@ -26,7 +27,8 @@ class RetalhoUsadoService
             'num_of' => $request->num_of,
             'obs' => $request->obs,
             'id_seccao' => $request->seccao,
-            'id_retalho' => $retalho->id
+            'id_retalho' => $retalho->id,
+            'id_user' => Auth::user()->id
         ]);
 
         $retalho->usado = 1;
