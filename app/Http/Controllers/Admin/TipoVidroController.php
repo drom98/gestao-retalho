@@ -69,7 +69,7 @@ class TipoVidroController extends Controller
      */
     public function edit(TipoVidro $tipoVidro)
     {
-        //
+        return view('admin.tipoVidro.edit')->with('tipoVidro', $tipoVidro);
     }
 
     /**
@@ -81,7 +81,11 @@ class TipoVidroController extends Controller
      */
     public function update(Request $request, TipoVidro $tipoVidro)
     {
-        //
+        $tipoVidro->update([
+            'nome' => $request->nome
+        ]);
+
+        return redirect(route('admin.tipoVidro.index'))->with('sucesso', 'Tipo de Vidro atualizado.');
     }
 
     /**
