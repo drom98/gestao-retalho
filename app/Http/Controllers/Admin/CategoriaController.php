@@ -67,9 +67,11 @@ class CategoriaController extends Controller
      * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function edit(Categoria $categoria)
+    public function edit($categoria)
     {
-        //
+        $categoria = Categoria::findOrFail($categoria);
+
+        return view('admin.categoria.edit')->with('categoria', $categoria);
     }
 
     /**
@@ -79,9 +81,15 @@ class CategoriaController extends Controller
      * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categoria $categoria)
+    public function update(Request $request, $categoria)
     {
-        //
+        $categoria = Categoria::findOrFail($categoria);
+
+        $categoria->update([
+            'nome' => $request->nome
+        ]);
+
+        return redirect(route('admin.categoria.index'))->with('sucesso', 'Categoria atualizada.');
     }
 
     /**
@@ -99,7 +107,7 @@ class CategoriaController extends Controller
     {
         return Datatables::of(Categoria::query())
             ->addColumn('opcoes', function ($categoria) {
-                $btnEditar = '<a href="/categoria/' . $categoria->id . '/edit" class="btn btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
+                $btnEditar = '<a href="/admin/categoria/' . $categoria->id . '/edit" class="btn btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
                 $btnApagar = '<a style="margin-left: 6px;" href="/categoria/' . $categoria->id . '/edit" class="btn btn-sm btn-danger "><i class="fas fa-trash"></i> Eliminar</a>';
                 return $btnEditar . $btnApagar;
             })
