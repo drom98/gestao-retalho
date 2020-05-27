@@ -23,6 +23,10 @@ window.addEventListener('load', (event) => {
     }
 });
 
+$(document).ready(function() {
+    $('.tipoVidroSelect').select2({theme: 'bootstrap4'});
+    $('.localizacaoSelect').select2({theme: 'bootstrap4'});
+});
 
 function getRetalho(id) {
     $('.modal-title').text('Usar retalho nº' + id);

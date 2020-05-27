@@ -30,13 +30,4 @@
                   </div>
             </div>
         </div>
-
-    @push('select-search')
-        <script !src="">
-            $(document).ready(function() {
-                $('.tipoVidroSelect').select2({theme: 'bootstrap4'});
-                $('.localizacaoSelect').select2({theme: 'bootstrap4'});
-            });
-        </script>
-    @endpush
 @endsection
