@@ -27,11 +27,7 @@
                             @method('PATCH')
                             <div class="form-group">
                                 <label for="lote">Lote:</label>
-                                <input name="lote" id="lote" step="1" type="number" class="form-control" placeholder="Lote" value="{{ $retalho->num_lote }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="num_of">Número OF:</label>
-                                <input name="num_of" id="num_of" step="1" type="number" class="form-control" placeholder="Número OF" value="{{ $retalho->num_of }}">
+                                <input name="lote" id="lote" type="text" class="form-control" placeholder="Lote" value="{{ $retalho->num_lote }}">
                             </div>
                             <div class="form-group">
                                 <label for="comprimento">Comprimento(mm):</label>
@@ -61,8 +57,8 @@
                                 <label for="area">Área</label>
                                 <input value="{{ $retalho->area }}" type="number" step="0.01" name="area" id="area" class="form-control" readonly>
                             </div>
-                            <button type="submit" class="btn btn-success">Guardar</button>
                             <a href="{{ URL::previous() }}" class="btn btn-danger">Cancelar</a>
+                            <button type="submit" class="btn btn-success">Guardar</button>
                           </form>
                     </div>
                   </div>

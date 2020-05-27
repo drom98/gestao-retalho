@@ -1,10 +1,6 @@
 <div class="form-group">
     <label for="lote">Lote:</label>
-    <input name="lote" id="lote" step="1" type="number" class="form-control" placeholder="Lote" value="{{ old('lote') }}">
-</div>
-<div class="form-group">
-    <label for="num_of">Número OF:</label>
-    <input name="num_of" id="num_of" step="1" type="number" class="form-control" placeholder="Número OF" value="{{ old('num_of') }}">
+    <input name="lote" id="lote" type="text" class="form-control" placeholder="Lote" value="{{ old('lote') }}">
 </div>
 <div class="form-group">
     <label for="comprimento">Comprimento(mm):</label>

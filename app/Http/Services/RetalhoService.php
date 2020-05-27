@@ -22,7 +22,6 @@ class RetalhoService
             [
                 'usado' => 0,
                 'num_lote' => $request->lote,
-                'num_of' => $request->num_of,
                 'comprimento' => $request->comprimento,
                 'largura' => $request->largura,
                 'area' => $area,
@@ -38,7 +37,6 @@ class RetalhoService
 
         $retalho = Retalho::find($id);
         dd($retalho);
-        $retalho->num_of = $request->num_of;
         $retalho->save();
     }
 
@@ -86,8 +84,7 @@ class RetalhoService
     private function validate($request)
     {
         return $request->validate([
-            'lote' => 'required|numeric',
-            'num_of' => 'required|numeric',
+            'lote' => 'required',
             'comprimento'=> 'required|numeric',
             'largura'=> 'required|numeric',
             'area'=> 'required|numeric|gt:1.0'
