@@ -16,39 +16,37 @@ class RetalhoService
     {
         $this->validate($request);
 
-        $area = ($request->largura * $request->comprimento)/1000000;
-
         return Retalho::create(
             [
                 'usado' => 0,
                 'num_lote' => $request->lote,
                 'comprimento' => $request->comprimento,
                 'largura' => $request->largura,
-                'area' => $area,
+                'area' => Helper::getArea($request->largura, $request->comprimento),
                 'id_tipoVidro' => $request->tipoVidro,
                 'id_localizacao' => $request->localizacao,
             ]
         );
     }
 
-    public function update($request, $id)
+    public function update(Request $request, Retalho $retalho)
     {
         $this->validate($request);
 
-        $retalho = Retalho::find($id);
-        dd($retalho);
-        $retalho->save();
+        return $retalho->update([
+            'num_lote' => $request->lote,
+            'comprimento' => $request->comprimento,
+            'largura' => $request->largura,
+            'id_tipoVidro' => $request->tipoVidro,
+            'id_localizacao' => $request->localizacao,
+            'area' => Helper::getArea($request->largura, $request->comprimento)
+        ]);
+
     }
 
     public function getRetalho($id)
     {
         return Retalho::findOrFail($id);
-    }
-
-    public function usar($id)
-    {
-        $retalho = Retalho::find($id)->firstOrFail();
-
     }
 
     public function delete($id)

@@ -57,7 +57,7 @@
                                 <label for="area">Área</label>
                                 <input value="{{ $retalho->area }}" type="number" step="0.01" name="area" id="area" class="form-control" readonly>
                             </div>
-                            <a href="{{ URL::previous() }}" class="btn btn-danger">Cancelar</a>
+                            <a href="{{ URL::previous() }}" class="btn btn-secondary">Cancelar</a>
                             <button type="submit" class="btn btn-success">Guardar</button>
                           </form>
                     </div>
