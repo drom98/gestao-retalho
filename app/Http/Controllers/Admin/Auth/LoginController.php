@@ -71,7 +71,7 @@ class LoginController extends Controller
         Auth::guard('admin')->logout();
         return redirect()
             ->route('admin.login')
-            ->with('status','Admin has been logged out!');
+            ->with('sucesso','Terminou sessão com sucesso.');
     }
 
     /**
@@ -103,6 +103,6 @@ class LoginController extends Controller
         return redirect()
             ->back()
             ->withInput()
-            ->with('error','Login failed, please try again!');
+            ->with('erro','As credenciais não coincidem. Tente novamente.');
     }
 }

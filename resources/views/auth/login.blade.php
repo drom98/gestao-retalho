@@ -2,6 +2,12 @@
 
 @section('content')
 <div class="container">
+    @if (session('sucesso'))
+        @include('includes.mensagemSucesso')
+    @endif
+    @if (session('erro'))
+        @include('includes.mensagemErro')
+    @endif
     <form class="form-signin" method="POST" action="{{ route('login') }}">
         @csrf
         <img class="mb-4" src="{{ asset('assets/img/logo.png') }}" alt="" width="160">
