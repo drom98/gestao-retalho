@@ -2,13 +2,20 @@
 
 @section('content')
     @include('includes.modalUsarRetalho')
-    <h1 class="h3 mb-4 text-gray-800">Retalho</h1>
+    <div class="row">
+        <div class="col">
+            <h1 class="h3 mb-4 text-gray-800">Retalho disponível</h1>
+        </div>
+        <div class="col" style="text-align: right">
+            <a href="{{ route('admin.retalho.create') }}" class="btn btn-sm btn-dark">Adicionar novo</a>
+        </div>
+    </div>
 
     @if (session('sucesso'))
         @include('includes.mensagemSucesso')
     @endif
     @if (session('erro'))
-        @include('includes.mensagemSucesso')
+        @include('includes.mensagemErro')
     @endif
 
     <!-- DataTales Example -->
