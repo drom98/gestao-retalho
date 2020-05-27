@@ -38,6 +38,10 @@ class LocalizacaoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nome' => 'required|unique:localizacoes'
+        ]);
+
         Localizacao::create([
             'nome' => $request->nome
         ]);
@@ -64,7 +68,7 @@ class LocalizacaoController extends Controller
      */
     public function edit(Localizacao $localizacao)
     {
-        //
+        return view('admin.localizacao.edit')->with('localizacao', $localizacao);
     }
 
     /**
@@ -76,7 +80,15 @@ class LocalizacaoController extends Controller
      */
     public function update(Request $request, Localizacao $localizacao)
     {
-        //
+        $request->validate([
+            'nome' => 'unique:localizacoes'
+        ]);
+
+        $localizacao->update([
+           'nome' => $request->nome
+        ]);
+
+        return redirect(route('admin.localizacao.index'))->with('sucesso', 'Localização atualizada.');
     }
 
     /**
@@ -93,13 +105,13 @@ class LocalizacaoController extends Controller
     public function getDataTables()
     {
         return Datatables::of(Localizacao::query())
-            ->addColumn('opcoes', function ($categoria) {
-                $btnEditar = '<a href="/categoria/' . $categoria->id . '/edit" class="btn btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
-                $btnApagar = '<a style="margin-left: 6px;" href="/categoria/' . $categoria->id . '/edit" class="btn btn-sm btn-danger "><i class="fas fa-trash"></i> Eliminar</a>';
+            ->addColumn('opcoes', function ($localizacao) {
+                $btnEditar = '<a href="/admin/localizacao/' . $localizacao->id . '/edit" class="btn btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
+                $btnApagar = '<a style="margin-left: 6px;" href="/categoria/' . $localizacao->id . '/edit" class="btn btn-sm btn-danger "><i class="fas fa-trash"></i> Eliminar</a>';
                 return $btnEditar . $btnApagar;
             })
-            ->addColumn('created_at', function ($categoria) {
-                return Helper::getLocalizedDate($categoria);
+            ->addColumn('created_at', function ($localizacao) {
+                return Helper::getLocalizedDate($localizacao);
             })
             ->rawColumns(['opcoes'])
             ->make(true);
