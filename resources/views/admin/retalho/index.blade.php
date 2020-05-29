@@ -37,7 +37,6 @@
                 serverSide: true,
                 ajax: '{!! route('admin.retalho.get') !!}',
                 columns: [
-                    { data: 'id', name: 'id' },
                     { data: 'num_lote', name: 'num_lote' },
                     { data: 'comprimento', name: 'comprimento' },
                     { data: 'largura', name: 'largura' },

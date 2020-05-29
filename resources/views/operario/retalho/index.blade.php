@@ -32,7 +32,6 @@
                 serverSide: true,
                 ajax: '{!! route('retalho.get') !!}',
                 columns: [
-                    { data: 'id', name: 'id' },
                     { data: 'num_lote', name: 'num_lote' },
                     { data: 'comprimento', name: 'comprimento' },
                     { data: 'largura', name: 'largura' },
@@ -40,7 +39,8 @@
                     { data: 'id_tipoVidro', name: 'id_tipoVidro' },
                     { data: 'id_localizacao', name: 'id_localizacao' },
                     { data: 'created_at', name: 'created_at', orderable: false},
-                    { data: 'opcoes', name: 'opcoes'}
+                    { data: 'id_user', name: 'id_user'},
+                    { data: 'opcoes', name: 'opcoes', orderable: false}
                 ]
             });
         });

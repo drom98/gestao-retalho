@@ -5,7 +5,6 @@
     <table class="table table-bordered" id="tabela-retalho">
         <thead>
         <tr>
-            <th>#</th>
             <th>Lote</th>
             <th>Comprimento</th>
             <th>Largura</th>

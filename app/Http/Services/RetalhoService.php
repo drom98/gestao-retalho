@@ -79,6 +79,31 @@ class RetalhoService
             ->make(true);
     }
 
+    public function getDataTablesOperario()
+    {
+        return Datatables::of(Retalho::where('usado', 0))
+            ->addColumn('id_tipoVidro', function ($retalho) {
+                return $retalho->TipoVidro->nome;
+            })
+            ->addColumn('id_localizacao', function ($retalho) {
+                return $retalho->Localizacao->nome;
+            })
+            ->addColumn('id_user', function ($retalho) {
+                return $retalho->User->username;
+            })
+            ->addColumn('created_at', function ($retalho) {
+                return Helper::getLocalizedDate($retalho);
+            })
+            ->addColumn('opcoes', function ($retalho) {
+                $btnUsar = '<button data-id="'. $retalho->id .'" onclick="getRetalho('.$retalho->id.')" type="button" class="btn btn-sm btn-block btn-success" data-toggle="modal" data-target="#modalUsarRetalho"><i class="fas fa-check"></i> Usar</button>';
+                $btnEditar = '<a href="/retalho/' . $retalho->id . '/edit" class="btn btn-block btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
+                $btnApagar = '<button class="btn btn-block btn-sm btn-danger" data-toggle="modal" data-target="#modalDelete"><i class="fas fa-trash"></i> Eliminar</button>';
+                return $btnUsar . $btnEditar . $btnApagar;
+            })
+            ->rawColumns(['opcoes'])
+            ->make(true);
+    }
+
     private function validate($request)
     {
         return $request->validate([
