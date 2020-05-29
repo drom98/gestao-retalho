@@ -41,7 +41,7 @@
         @if( Auth::guard('web')->check() )
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2 d-none d-lg-inline text-dark small">{{ Auth::guard('web')->user()->name }}</span>
+                    <span class="mr-2 d-none d-lg-inline text-dark small">{{ Auth::guard('web')->user()->username }}</span>
                     <i class="fas fa-user-circle text-dark"></i>
                 </a>
                 <!-- Dropdown - User Information -->
@@ -59,7 +59,7 @@
         @if( Auth::guard('admin')->check() )
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2 d-none d-lg-inline text-dark small">{{ Auth::guard('admin')->user()->name }} (Admin)</span>
+                    <span class="mr-2 d-none d-lg-inline text-dark small">{{ Auth::guard('admin')->user()->username }}</span>
                     <i class="fas fa-user-circle text-dark"></i>
                 </a>
                 <!-- Dropdown - User Information -->
