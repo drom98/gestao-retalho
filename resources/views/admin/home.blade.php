@@ -16,6 +16,9 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Retalho disponível</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $qtRetalho}}</div>
+                            <br>
+                            <a href="{{ route('admin.retalho.index') }}" class="btn btn-secondary btn-sm">Consultar</a>
+                            <a href="{{ route('admin.retalho.create') }}" class="btn btn-secondary btn-sm">Adicionar</a>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-layer-group fa-2x text-gray-300"></i>
@@ -32,6 +35,8 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Retalho usado</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $qtRetalhoUsado }}</div>
+                            <br>
+                            <a href="{{ route('admin.usado.index') }}" class="btn btn-secondary btn-sm">Ver retalho usado</a>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-box-open fa-2x text-gray-300"></i>
@@ -48,6 +53,8 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Categorias</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $qtCategorias }}</div>
+                            <br>
+                            <a href="{{ route('admin.categoria.index') }}" class="btn btn-secondary btn-sm">Ver categorias</a>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-folder fa-2x text-gray-300"></i>
