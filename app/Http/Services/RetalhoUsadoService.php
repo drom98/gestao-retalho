@@ -17,6 +17,12 @@ class RetalhoUsadoService
     {
         $retalho = Retalho::find($request->id_retalho);
 
+        $request->validate([
+            'comprimento' => ['required', 'lte:' . $retalho->comprimento],
+            'largura' => ['required', 'lte:' . $retalho->largura],
+            'num_of' => ['required'],
+        ]);
+
         $area = ($request->largura * $request->comprimento)/1000000;
 
         RetalhoUsado::create([
