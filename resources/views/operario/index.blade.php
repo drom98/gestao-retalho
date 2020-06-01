@@ -16,17 +16,6 @@
                             <a href="/retalho/create" class="btn btn-block btn-primary text-white">Inserir retalho</a>
                         </div>
                     </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <a href="#" class="btn btn-danger btn-block" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                Encerrar sessão
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
