@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Services\RetalhoService;
 use App\Localizacao;
 use App\Retalho;
+use App\Seccao;
 use App\TipoVidro;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -26,13 +27,13 @@ class RetalhoController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        $retalho = Retalho::all();
         return view('operario.retalho.index', [
-            'retalho' => $retalho
+            'retalho' => Retalho::all(),
+            'seccoes' => Seccao::all()
         ]);
     }
 

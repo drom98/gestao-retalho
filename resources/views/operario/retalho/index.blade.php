@@ -1,6 +1,8 @@
 @extends('operario.layout')
 
 @section('content')
+    @include('includes.modalUsarRetalho')
+    @include('includes.modalDelete')
     <div class="row justify-content-center">
         <div class="col-lg-12">
             <div class="card shadow mb-4">
