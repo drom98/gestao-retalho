@@ -58,9 +58,9 @@ class RetalhoController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->retalhoService->store($request);
+        $this->retalhoService->store($request);
 
-        //return self::index()->with('sucesso', 'Novo retalho adicionado.');
+        return redirect(route('retalho.index'))->with('sucesso', 'Retalho adicionado.');
     }
 
     /**

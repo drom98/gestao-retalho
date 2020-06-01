@@ -7,6 +7,7 @@ namespace App\Http\Services;
 use App\Helpers\Helper;
 use App\Retalho;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 use function GuzzleHttp\Promise\all;
 
@@ -25,6 +26,7 @@ class RetalhoService
                 'area' => Helper::getArea($request->largura, $request->comprimento),
                 'id_tipoVidro' => $request->tipoVidro,
                 'id_localizacao' => $request->localizacao,
+                'id_user' => Auth::id()
             ]
         );
     }

@@ -3,6 +3,13 @@
 @section('content')
     @include('includes.modalUsarRetalho')
     @include('includes.modalDelete')
+
+    @if (session('sucesso'))
+        @include('includes.mensagemSucesso')
+    @endif
+    @if (session('errors'))
+        @include('includes.mensagemErro')
+    @endif
     <div class="row justify-content-center">
         <div class="col-lg-12">
             <div class="card shadow mb-4">

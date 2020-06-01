@@ -34,7 +34,7 @@ class RetalhoUsadoService
             'obs' => $request->obs,
             'id_seccao' => $request->seccao,
             'id_retalho' => $retalho->id,
-            'id_user' => Auth::user()->id
+            'id_user' => Auth::id()
         ]);
 
         $retalho->usado = 1;
