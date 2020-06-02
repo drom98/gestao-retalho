@@ -32,27 +32,6 @@
                     <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 16rem;" src="{{ asset('assets/img/logo.png') }}" alt="">
                     <h2 class="text-dark font-weight-bold">Cristalmax</h2>
                 </div>
-                    <div class="card mb-5 mt-4 py-2 border-left-primary shadow">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col">
-                                    <p class="font-weight-bold">Bem vindo:
-                                        <span class="font-weight-normal">{{ Auth::user()->name }}</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4">
-                                    <a href="#" class="text-danger font-weight-bold" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        Sair <i class="fas fa-sign-out-alt"></i>
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
             </div>
         </div>
         @yield('content')
