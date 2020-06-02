@@ -51,13 +51,14 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Categorias</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $qtCategorias }}</div>
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Localizações</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $qtLocalizacoes }}</div>
                             <br>
-                            <a href="{{ route('admin.categoria.index') }}" class="btn btn-secondary btn-sm">Ver categorias</a>
+                            <a href="{{ route('admin.localizacao.index') }}" class="btn btn-secondary btn-sm">Ver localizações</a>
+                            <a href="{{ route('admin.localizacao.create') }}" class="btn btn-secondary btn-sm">Adicionar</a>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-folder fa-2x text-gray-300"></i>
+                            <i class="fas fa-search-location fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>

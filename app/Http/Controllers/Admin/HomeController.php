@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Categoria;
 use App\Http\Controllers\Controller;
+use App\Localizacao;
 use App\Retalho;
 use App\RetalhoUsado;
-use App\TipoVidro;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -33,7 +32,7 @@ class HomeController extends Controller
         return view('admin.home', [
             'qtRetalho' => DB::table('retalhos')->where('usado', 0)->count(),
             'qtRetalhoUsado' => RetalhoUsado::count(),
-            'qtCategorias' => Categoria::count()
+            'qtLocalizacoes' => Localizacao::count()
         ]);
     }
 
