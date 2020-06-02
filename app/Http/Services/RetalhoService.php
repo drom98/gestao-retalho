@@ -58,7 +58,7 @@ class RetalhoService
 
     public function getDataTables()
     {
-        return Datatables::of(Retalho::where('usado', 0))
+        return Datatables::of(Retalho::where('usado', 0)->orderBy('created_at', 'desc'))
             ->addColumn('id_tipoVidro', function ($retalho) {
                 return $retalho->TipoVidro->nome;
             })
@@ -83,7 +83,7 @@ class RetalhoService
 
     public function getDataTablesOperario()
     {
-        return Datatables::of(Retalho::where('usado', 0))
+        return Datatables::of(Retalho::where('usado', 0)->orderBy('created_at', 'desc'))
             ->addColumn('id_tipoVidro', function ($retalho) {
                 return $retalho->TipoVidro->nome;
             })
