@@ -8,11 +8,7 @@
                     <div class="row">
                         <div class="col">
                             <p class="font-weight-bold">Bem vindo:
-                                <span class="font-weight-normal">{{ Auth::user()->name }}
-                                    <span class="text-secondary">
-                                        <small id="emailHelp" class="form-text text-muted">({{ Auth::user()->username }})</small>
-                                    </span>
-                                </span>
+                                <span class="font-weight-normal">{{ Auth::user()->name }} ({{ Auth::user()->username }})</span>
                             </p>
                         </div>
                     </div>
