@@ -28,7 +28,6 @@
                 serverSide: true,
                 ajax: '{!! route('admin.usado.get') !!}',
                 columns: [
-                    { data: 'id', name: 'id' },
                     { data: 'comprimento', name: 'comprimento' },
                     { data: 'largura', name: 'largura' },
                     { data: 'area', name: 'area' },
