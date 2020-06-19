@@ -107,9 +107,11 @@ class RetalhoController extends Controller
      * @param  \App\Retalho  $retalho
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Retalho $retalho)
+    public function destroy($retalho)
     {
-        //
+        $retalho = Retalho::findOrFail($retalho);
+
+        return $this->retalhoService->delete($retalho);
     }
 
     public function getRetalho()

@@ -28,6 +28,20 @@ $(document).ready(function() {
     $('.localizacaoSelect').select2({theme: 'bootstrap4'});
 });
 
+const csfr = document.querySelector('input[name=_token]').value;
+
+apagarRetalho = (id) => {
+    const headers = new Headers({
+        'X-CSRF-TOKEN': csfr
+    })
+    return fetch('/admin/retalho/' + id, {
+        method: 'DELETE',
+        headers
+    }).then(function () {
+        window.location = "/admin/retalho"
+    })
+}
+
 function getRetalho(id) {
     $('.modal-title').text('Usar retalho nº' + id);
     $('#id_retalho').val(id);
