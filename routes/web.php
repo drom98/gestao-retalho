@@ -33,6 +33,10 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 
         Route::get('/retalho/get', 'RetalhoController@getDataTables')->name('retalho.get');
         Route::get('/retalho/usar/get/{id}', 'RetalhoController@getRetalho')->name('usar.get');
+
+        Route::get('/retalho/DTeliminado', 'RetalhoController@getDTEliminado')->name('retalho.DTeliminado');
+        Route::get('/retalho/eliminado', 'RetalhoController@getViewEliminado')->name('retalho.eliminado');
+
         Route::resource('retalho', 'RetalhoController');
 
         Route::get('/usado/getUsado', 'RetalhoUsadoController@getUsado')->name('usado.get');

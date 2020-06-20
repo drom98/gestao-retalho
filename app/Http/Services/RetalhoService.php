@@ -58,6 +58,30 @@ class RetalhoService
         return true;
     }
 
+    public function getDTEliminado()
+    {
+        return Datatables::of(Retalho::onlyTrashed()->get())
+            ->addColumn('tipoVidro', function ($retalho) {
+                return $retalho->TipoVidro->nome;
+            })
+            ->addColumn('localizacao', function ($retalho) {
+                return $retalho->Localizacao->nome;
+            })
+            ->addColumn('user', function ($retalho) {
+                return $retalho->User->username;
+            })
+            ->addColumn('created_at', function ($retalho) {
+                return Helper::getLocalizedDate($retalho);
+            })
+            ->addColumn('opcoes', function ($retalho) {
+                $btnRestaurar = '<button data-id="'. $retalho->id .'" onclick="getRetalho('.$retalho->id.')" type="button" class="btn btn-sm btn-block btn-success" data-toggle="modal" data-target="#modalUsarRetalho"><i class="fas fa-check"></i> Restaurar</button>';
+                $btnApagar = '<button class="btn btn-block btn-sm btn-danger" onclick="apagarRetalho(' . $retalho->id . ')"><i class="fas fa-trash"></i> Eliminar</button>';
+                return $btnRestaurar . $btnApagar;
+            })
+            ->rawColumns(['opcoes'])
+            ->make(true);
+    }
+
     public function getDataTables()
     {
         return Datatables::of(Retalho::where('deleted_at', null)->orderBy('created_at', 'desc'))

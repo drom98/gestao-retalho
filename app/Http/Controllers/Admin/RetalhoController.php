@@ -90,6 +90,21 @@ class RetalhoController extends Controller
         return $this->retalhoService->delete($retalho->id);
     }
 
+    public function getViewEliminado()
+    {
+        return view('admin.retalho.deleted');
+    }
+
+    public function getEliminado()
+    {
+        return $this->retalhoService->getEliminado();
+    }
+
+    public function getDTEliminado()
+    {
+        return $this->retalhoService->getDTEliminado();
+    }
+
     public function getViewUsado()
     {
         return view('admin.retalho.usado');
