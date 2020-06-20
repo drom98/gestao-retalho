@@ -60,7 +60,7 @@ class RetalhoService
 
     public function getDataTables()
     {
-        return Datatables::of(Retalho::where('usado', 0)->orderBy('created_at', 'desc'))
+        return Datatables::of(Retalho::where('deleted_at', null)->orderBy('created_at', 'desc'))
             ->addColumn('tipoVidro', function ($retalho) {
                 return $retalho->TipoVidro->nome;
             })

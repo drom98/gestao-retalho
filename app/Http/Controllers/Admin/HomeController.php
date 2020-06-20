@@ -30,7 +30,7 @@ class HomeController extends Controller
      */
     public function index(){
         return view('admin.home', [
-            'qtRetalho' => DB::table('retalhos')->where('usado', 0)->count(),
+            'qtRetalho' => DB::table('retalhos')->where('deleted_at', null)->count(),
             'qtRetalhoUsado' => RetalhoUsado::count(),
             'qtLocalizacoes' => Localizacao::count()
         ]);
