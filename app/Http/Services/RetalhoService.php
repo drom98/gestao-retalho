@@ -19,7 +19,6 @@ class RetalhoService
 
         return Retalho::create(
             [
-                'usado' => 0,
                 'num_lote' => $request->lote,
                 'comprimento' => $request->comprimento,
                 'largura' => $request->largura,

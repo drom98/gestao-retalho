@@ -18,7 +18,6 @@ class Retalho extends Model
         'area',
         'id_tipoVidro',
         'id_localizacao',
-        'usado',
         'id_user'
     ];
 
