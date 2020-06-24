@@ -36,6 +36,17 @@ class RetalhoUsadoService
             'id_retalho' => $retalho->id,
             'id_user' => Auth::id()
         ]);
+
+        $retalho->comprimento = ($retalho->comprimento - $request->comprimento);
+        $retalho->largura = ($retalho->largura - $request->largura);
+        $retalho->area = ($retalho->largura * $retalho->comprimento)/1000000;
+
+        if( $retalho->area < 1.0) {
+            $retalho->save();
+            $retalho->delete();
+        } else {
+            $retalho->save();
+        }
     }
 
     public function getDataTables()
