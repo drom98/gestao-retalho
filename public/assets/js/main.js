@@ -50,7 +50,7 @@ function getRetalho(id) {
     $('.modal-title').text('Usar retalho nº' + id);
     $('#id_retalho').val(id);
     $.ajax({
-        url: "/admin/retalho/usar/get/" + id,
+        url: "/retalho/usar/get/" + id,
         type: "get",
         dataType: "json",
         success: function (res) {

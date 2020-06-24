@@ -118,4 +118,9 @@ class RetalhoController extends Controller
     {
         return $this->retalhoService->getDataTablesOperario();
     }
+
+    public function getRetalhoById($id)
+    {
+        return $this->retalhoService->getRetalho($id);
+    }
 }

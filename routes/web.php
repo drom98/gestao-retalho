@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'OperarioController@home')->name('home');
 
+Route::get('/retalho/usar/get/{id}', 'RetalhoController@getRetalhoById')->name('usar.get');
+
 Auth::routes(['register' => false]);
 
 Route::middleware('auth:web')->group(function () {
