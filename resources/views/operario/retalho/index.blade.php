@@ -1,7 +1,7 @@
 @extends('operario.layout')
 
 @section('content')
-    @include('includes.modalUsarRetalho')
+    @include('includes.modalUsarRetalho_op')
     @include('includes.modalDelete')
 
     @if (session('sucesso'))

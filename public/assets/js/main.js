@@ -42,6 +42,10 @@ apagarRetalho = (id) => {
     })
 }
 
+showMessage = () => {
+
+}
+
 function getRetalho(id) {
     $('.modal-title').text('Usar retalho nº' + id);
     $('#id_retalho').val(id);

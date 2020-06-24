@@ -23,6 +23,8 @@ Route::middleware('auth:web')->group(function () {
     Route::get('/retalho/getRetalho', 'RetalhoController@getRetalho')->name('retalho.get');
     Route::resource('retalho', 'RetalhoController');
 
+    Route::resource('usado', 'RetalhoUsadoController');
+
 });
 
 Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){

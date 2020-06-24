@@ -2,11 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\RetalhoUsadoService;
 use App\RetalhoUsado;
 use Illuminate\Http\Request;
 
 class RetalhoUsadoController extends Controller
 {
+
+    private $retalhoUsadoService;
+
+    /**
+     * RetalhoUsadoController constructor.
+     * @param $retalhoUsadoService
+     */
+    public function __construct(RetalhoUsadoService $retalhoUsadoService)
+    {
+        $this->retalhoUsadoService = $retalhoUsadoService;
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +49,9 @@ class RetalhoUsadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->retalhoUsadoService->store($request);
+
+        return redirect(route('home'))->with('sucesso', 'Retalho marcado como usado.');
     }
 
     /**

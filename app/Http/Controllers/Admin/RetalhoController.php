@@ -86,8 +86,9 @@ class RetalhoController extends Controller
     public function destroy($retalho)
     {
         $retalho = Retalho::findOrFail($retalho);
+        $this->retalhoService->delete($retalho->id);
 
-        return $this->retalhoService->delete($retalho->id);
+        return redirect(route('admin.retalho.index'))->with('sucesso', 'Retalho eliminado.');
     }
 
     public function getViewEliminado()

@@ -32,6 +32,16 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
+                            @if (session('sucesso'))
+                                @include('includes.mensagemSucesso')
+                            @endif
+                            @if (session('errors'))
+                                @include('includes.mensagemErro')
+                            @endif
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
                             <a href="/retalho" class="btn btn-block btn-primary text-white">Consultar retalho</a>
                         </div>
                     </div>

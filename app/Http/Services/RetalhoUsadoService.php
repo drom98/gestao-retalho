@@ -36,19 +36,13 @@ class RetalhoUsadoService
             'id_retalho' => $retalho->id,
             'id_user' => Auth::id()
         ]);
-
-        $retalho->usado = 1;
-        $retalho->save();
     }
 
     public function getDataTables()
     {
         return DataTables::of(RetalhoUsado::query()->orderBy('created_at', 'desc'))
             ->addColumn('id_tipoVidro', function ($retalho) {
-                return $retalho->Retalho->TipoVidro->nome;
-            })
-            ->addColumn('id_localizacao', function ($retalho) {
-                return $retalho->Retalho->Localizacao->nome;
+                return $retalho->retalho->tipoVidro->nome;
             })
             ->addColumn('id_user', function ($retalho) {
                 return $retalho->User->username;
