@@ -51,9 +51,11 @@ class RetalhoUsadoService
 
     public function getDataTables()
     {
-        return DataTables::of(RetalhoUsado::query()->orderBy('created_at', 'desc'))
+        return DataTables::of(RetalhoUsado::orderBy('created_at', 'desc')->get())
             ->addColumn('id_tipoVidro', function ($retalho) {
-                return $retalho->retalho->tipoVidro->nome;
+                foreach ($retalho->retalho()->withTrashed()->get() as $r) {
+                    return $r->tipoVidro->nome;
+                }
             })
             ->addColumn('id_user', function ($retalho) {
                 return $retalho->User->username;
