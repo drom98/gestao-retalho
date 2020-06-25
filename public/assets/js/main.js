@@ -42,6 +42,18 @@ apagarRetalho = (id) => {
     })
 }
 
+apagarRetalhoUsado = (id) => {
+    const headers = new Headers({
+        'X-CSRF-TOKEN': csfr
+    })
+    return fetch('/admin/usado/' + id, {
+        method: 'DELETE',
+        headers
+    }).then(function () {
+        window.location = "/admin/usado"
+    })
+}
+
 showMessage = () => {
 
 }

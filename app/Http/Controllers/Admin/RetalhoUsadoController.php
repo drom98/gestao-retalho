@@ -85,9 +85,11 @@ class RetalhoUsadoController extends Controller
      * @param  \App\RetalhoUsado  $retalhoUsado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RetalhoUsado $retalhoUsado)
+    public function destroy($retalhoUsado)
     {
-        //
+        RetalhoUsado::destroy($retalhoUsado);
+
+        return redirect(route('admin.usado.index'))->with('sucesso', 'Retalho eliminado.');
     }
 
     public function getUsado()
