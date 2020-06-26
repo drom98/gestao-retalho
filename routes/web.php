@@ -40,6 +40,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 
         Route::get('/retalho/DTeliminado', 'RetalhoController@getDTEliminado')->name('retalho.DTeliminado');
         Route::get('/retalho/eliminado', 'RetalhoController@getViewEliminado')->name('retalho.eliminado');
+        Route::get('/retalho/eliminado/{id}', 'RetalhoController@deletePerma')->name('retalho.eliminado.deletePerma');
 
         Route::resource('retalho', 'RetalhoController');
 

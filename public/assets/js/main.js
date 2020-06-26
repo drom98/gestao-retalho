@@ -31,7 +31,7 @@ $(document).ready(function() {
 
 const getCSFR = () => document.querySelector('input[name=_token]').value;
 
-const fecthDelete = (id, url) => {
+const fecthDelete = (id, url, method) => {
 
     const headers = new Headers({
         'X-CSRF-TOKEN': getCSFR()
@@ -40,7 +40,7 @@ const fecthDelete = (id, url) => {
     if (confirm('Tem a certeza que pretende eliminar?')) {
 
         return fetch(url + id, {
-            method: 'DELETE',
+            method: `${method}`,
             headers
         }).then(function () {
             window.location = url
