@@ -96,7 +96,7 @@ class RetalhoController extends Controller
         $retalho = Retalho::onlyTrashed()->where('id', $retalho);
         $retalho->forceDelete();
 
-        return redirect(route('admin.eliminado'))->with('sucesso', 'Retalho eliminado permanetemente.');
+        return redirect(route('admin.retalho.eliminado'))->with('sucesso', 'Retalho eliminado permanentemente.');
     }
 
     public function getViewEliminado()

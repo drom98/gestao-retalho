@@ -114,7 +114,7 @@ class CategoriaController extends Controller
         return Datatables::of(Categoria::query())
             ->addColumn('opcoes', function ($categoria) {
                 $btnEditar = '<a href="/admin/categoria/' . $categoria->id . '/edit" class="btn btn-block btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
-                $btnApagar = '<button class="btn btn-block btn-sm btn-danger" onclick="fecthDelete(' . $categoria->id . ', ' . "'/admin/categoria/'" . ')"><i class="fas fa-trash"></i> Eliminar</button>';
+                $btnApagar = '<button class="btn btn-block btn-sm btn-danger" onclick="fecthDelete(' . $categoria->id . ', ' . "'/admin/categoria/'" . ', '. "'DELETE'" .')"><i class="fas fa-trash"></i> Eliminar</button>';
                 return $btnEditar . $btnApagar;
             })
             ->addColumn('created_at', function ($categoria) {

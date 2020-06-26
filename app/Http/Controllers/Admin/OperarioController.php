@@ -94,7 +94,7 @@ class OperarioController extends Controller
             })
             ->addColumn('opcoes', function ($user) {
                 $btnEditar = '<a href="/admin/operario/' . $user->id . '/edit" class="btn btn-block btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
-                $btnApagar = '<button class="btn btn-block btn-sm btn-danger" onclick="fecthDelete(' . $user->id . ', ' . "'/admin/operario/'" . ')"><i class="fas fa-trash"></i> Eliminar</button>';
+                $btnApagar = '<button class="btn btn-block btn-sm btn-danger" onclick="fecthDelete(' . $user->id . ', ' . "'/admin/operario/'" . ', '. "'DELETE'" .')"><i class="fas fa-trash"></i> Eliminar</button>';
                 return $btnEditar . $btnApagar;
             })
             ->rawColumns(['opcoes'])
