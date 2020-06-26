@@ -94,9 +94,11 @@ class TipoVidroController extends Controller
      * @param  \App\TipoVidro  $tipoVidro
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TipoVidro $tipoVidro)
+    public function destroy($tipoVidro)
     {
-        //
+        TipoVidro::destroy($tipoVidro);
+
+        return redirect(route('admin.tipoVidro.index'))->with('sucesso', 'Tipo de vidro eliminado.');
     }
 
     public function getDataTables()
@@ -106,8 +108,8 @@ class TipoVidroController extends Controller
                 return Helper::getLocalizedDate($tipoVidro);
             })
             ->addColumn('opcoes', function ($tipoVidro) {
-                $btnEditar = '<a style="margin-left: 6px;" href="/admin/tipoVidro/' . $tipoVidro->id . '/edit" class="btn btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
-                $btnApagar = '<a style="margin-left: 6px;" href="/admin/tipoVidro/' . $tipoVidro->id . '/edit" class="btn btn-sm btn-danger "><i class="fas fa-trash"></i> Eliminar</a>';
+                $btnEditar = '<a href="/admin/tipoVidro/' . $tipoVidro->id . '/edit" class="btn btn-block btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
+                $btnApagar = '<button class="btn btn-block btn-sm btn-danger" onclick="fecthDelete(' . $tipoVidro->id . ', ' . "'/admin/tipoVidro/'" . ')"><i class="fas fa-trash"></i> Eliminar</button>';
                 return $btnEditar . $btnApagar;
             })
             ->rawColumns(['opcoes'])
