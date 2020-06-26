@@ -97,9 +97,11 @@ class LocalizacaoController extends Controller
      * @param  \App\Localizacao  $localizacao
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Localizacao $localizacao)
+    public function destroy($localizacao)
     {
-        //
+        Localizacao::destroy($localizacao);
+
+        return redirect(route('admin.localizacao.index'))->with('sucesso', 'Localização eliminada.');
     }
 
     public function getDataTables()
@@ -107,7 +109,7 @@ class LocalizacaoController extends Controller
         return Datatables::of(Localizacao::query())
             ->addColumn('opcoes', function ($localizacao) {
                 $btnEditar = '<a href="/admin/localizacao/' . $localizacao->id . '/edit" class="btn btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
-                $btnApagar = '<a style="margin-left: 6px;" href="/categoria/' . $localizacao->id . '/edit" class="btn btn-sm btn-danger "><i class="fas fa-trash"></i> Eliminar</a>';
+                $btnApagar = '<button class="btn btn-block btn-sm btn-danger" onclick="fecthDelete(' . $localizacao->id . ', ' . "'/admin/localizacao/'" . ')"><i class="fas fa-trash"></i> Eliminar</button>';
                 return $btnEditar . $btnApagar;
             })
             ->addColumn('created_at', function ($localizacao) {
