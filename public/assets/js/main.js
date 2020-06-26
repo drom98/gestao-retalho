@@ -28,35 +28,27 @@ $(document).ready(function() {
     $('.localizacaoSelect').select2({theme: 'bootstrap4'});
 });
 
-const csfr = document.querySelector('input[name=_token]').value;
 
-apagarRetalho = (id) => {
+const getCSFR = () => document.querySelector('input[name=_token]').value;
+
+const fecthDelete = (id, url) => {
+
     const headers = new Headers({
-        'X-CSRF-TOKEN': csfr
+        'X-CSRF-TOKEN': getCSFR()
     })
-    return fetch('/admin/retalho/' + id, {
-        method: 'DELETE',
-        headers
-    }).then(function () {
-        window.location = "/admin/retalho"
-    })
+
+    if (confirm('Apagar o retalho selecionado?')) {
+
+        return fetch(url + id, {
+            method: 'DELETE',
+            headers
+        }).then(function () {
+            window.location = url
+        })
+
+    }
 }
 
-apagarRetalhoUsado = (id) => {
-    const headers = new Headers({
-        'X-CSRF-TOKEN': csfr
-    })
-    return fetch('/admin/usado/' + id, {
-        method: 'DELETE',
-        headers
-    }).then(function () {
-        window.location = "/admin/usado"
-    })
-}
-
-showMessage = () => {
-
-}
 
 function getRetalho(id) {
     $('.modal-title').text('Usar retalho nº' + id);

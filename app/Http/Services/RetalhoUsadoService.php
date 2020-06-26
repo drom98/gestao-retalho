@@ -67,7 +67,7 @@ class RetalhoUsadoService
                 return Helper::getLocalizedDate($retalho);
             })
             ->addColumn('opcoes', function ($retalho) {
-                $btnApagar = '<button class="btn btn-block btn-sm btn-danger" onclick="apagarRetalhoUsado(' . $retalho->id . ')"><i class="fas fa-trash"></i> Eliminar</button>';
+                $btnApagar = '<button class="btn btn-block btn-sm btn-danger" onclick="fecthDelete(' . $retalho->id . ', ' . "'/admin/usado/'" . ')"><i class="fas fa-trash"></i> Eliminar</button>';
                 return $btnApagar;
             })
             ->rawColumns(['opcoes'])
