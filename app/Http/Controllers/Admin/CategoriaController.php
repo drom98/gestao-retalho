@@ -102,17 +102,19 @@ class CategoriaController extends Controller
      * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categoria $categoria)
+    public function destroy($categoria)
     {
-        //
+        Categoria::destroy($categoria);
+
+        return redirect(route('admin.categoria.index'))->with('sucesso', 'Categoria eliminada.');
     }
 
     public function getDataTables()
     {
         return Datatables::of(Categoria::query())
             ->addColumn('opcoes', function ($categoria) {
-                $btnEditar = '<a href="/admin/categoria/' . $categoria->id . '/edit" class="btn btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
-                $btnApagar = '<a style="margin-left: 6px;" href="/categoria/' . $categoria->id . '/edit" class="btn btn-sm btn-danger "><i class="fas fa-trash"></i> Eliminar</a>';
+                $btnEditar = '<a href="/admin/categoria/' . $categoria->id . '/edit" class="btn btn-block btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
+                $btnApagar = '<button class="btn btn-block btn-sm btn-danger" onclick="fecthDelete(' . $categoria->id . ', ' . "'/admin/categoria/'" . ')"><i class="fas fa-trash"></i> Eliminar</button>';
                 return $btnEditar . $btnApagar;
             })
             ->addColumn('created_at', function ($categoria) {
