@@ -73,6 +73,19 @@ class OperarioController extends Controller
         return redirect(route('admin.operario.index'))->with('sucesso', 'Utilizador atualizado.');
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Localizacao  $localizacao
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($operario)
+    {
+        User::destroy($operario);
+
+        return redirect(route('admin.operario.index'))->with('sucesso', 'Operário eliminado.');
+    }
+
     public function getDataTables()
     {
         return Datatables::of(User::query())
@@ -80,8 +93,8 @@ class OperarioController extends Controller
                 return Helper::getLocalizedDate($user);
             })
             ->addColumn('opcoes', function ($user) {
-                $btnEditar = '<a style="margin-left: 6px;" href="/admin/operario/' . $user->id . '/edit" class="btn btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
-                $btnApagar = '<a style="margin-left: 6px;" href="/admin/operario/' . $user->id . '/edit" class="btn btn-sm btn-danger "><i class="fas fa-trash"></i> Eliminar</a>';
+                $btnEditar = '<a href="/admin/operario/' . $user->id . '/edit" class="btn btn-block btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
+                $btnApagar = '<button class="btn btn-block btn-sm btn-danger" onclick="fecthDelete(' . $user->id . ', ' . "'/admin/operario/'" . ')"><i class="fas fa-trash"></i> Eliminar</button>';
                 return $btnEditar . $btnApagar;
             })
             ->rawColumns(['opcoes'])

@@ -108,7 +108,7 @@ class LocalizacaoController extends Controller
     {
         return Datatables::of(Localizacao::query())
             ->addColumn('opcoes', function ($localizacao) {
-                $btnEditar = '<a href="/admin/localizacao/' . $localizacao->id . '/edit" class="btn btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
+                $btnEditar = '<a href="/admin/localizacao/' . $localizacao->id . '/edit" class="btn btn-block btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
                 $btnApagar = '<button class="btn btn-block btn-sm btn-danger" onclick="fecthDelete(' . $localizacao->id . ', ' . "'/admin/localizacao/'" . ')"><i class="fas fa-trash"></i> Eliminar</button>';
                 return $btnEditar . $btnApagar;
             })
