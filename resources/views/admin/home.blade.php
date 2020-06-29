@@ -65,4 +65,22 @@
             </div>
         </div>
     </div>
+
+    <div class="row mt-5 mb-4">
+
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-header text-primary font-weight-bold">
+                    {{ $chartRetalhosPorTipoVidro->options['chart_title'] }}
+                </div>
+                <div class="card-body">
+                    {!! $chartRetalhosPorTipoVidro->renderHtml() !!}
+                    {!! $chartRetalhosPorTipoVidro->renderChartJsLibrary() !!}
+                    {!! $chartRetalhosPorTipoVidro->renderJs() !!}
+                </div>
+            </div>
+        </div>
+
+
+    </div>
 @endsection
