@@ -82,7 +82,7 @@ class RetalhoController extends Controller
      */
     public function edit(Retalho $retalho)
     {
-        return view('admin.retalho.edit', [
+        return view('operario.retalho.edit', [
             'retalho' => $retalho,
             'tiposVidro' => TipoVidro::all(),
             'localizacoes' => Localizacao::all()
@@ -98,7 +98,9 @@ class RetalhoController extends Controller
      */
     public function update(Request $request, Retalho $retalho)
     {
-        //
+        $this->retalhoService->update($request, $retalho);
+
+        return redirect(route('retalho.index'))->with('sucesso', 'Retalho Nº'.$retalho->id.' atualizado.');
     }
 
     /**

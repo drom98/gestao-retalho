@@ -2,7 +2,6 @@
 
 @section('content')
     @include('includes.modalUsarRetalho_op')
-    @include('includes.modalDelete')
 
     @if (session('sucesso'))
         @include('includes.mensagemSucesso')
@@ -14,7 +13,7 @@
         <div class="col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <a href="{{ url()->previous() }}" class="btn btn-sm btn-dark text-white">
+                    <a href="{{ route('home') }}" class="btn btn-sm btn-dark text-white">
                         <i class="fas fa-arrow-left"></i>
                         Voltar
                     </a>
