@@ -124,7 +124,7 @@ class RetalhoService
             ->addColumn('opcoes', function ($retalho) {
                 $btnUsar = '<button data-id="'. $retalho->id .'" onclick="getRetalho('.$retalho->id.')" type="button" class="btn btn-sm btn-block btn-success" data-toggle="modal" data-target="#modalUsarRetalho"><i class="fas fa-check"></i> Usar</button>';
                 $btnEditar = '<a href="/retalho/' . $retalho->id . '/edit" class="btn btn-block btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
-                $btnApagar = '<button class="btn btn-block btn-sm btn-danger" data-toggle="modal" data-target="#modalDelete"><i class="fas fa-trash"></i> Eliminar</button>';
+                $btnApagar = '<button class="btn btn-block btn-sm btn-danger" onclick="fecthDelete(' . $retalho->id . ', ' . "'/retalho/'" . ', '. "'DELETE'" .')"><i class="fas fa-trash"></i> Eliminar</button>';
                 return $btnUsar . $btnEditar . $btnApagar;
             })
             ->rawColumns(['opcoes'])

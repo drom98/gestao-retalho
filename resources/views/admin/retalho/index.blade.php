@@ -2,7 +2,6 @@
 
 @section('content')
     @include('includes.modalUsarRetalho')
-    @include('includes.modalDelete')
     <div class="row">
         <div class="col">
             <h1 class="h3 mb-4 text-gray-800">Retalho disponível</h1>
