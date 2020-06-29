@@ -26,11 +26,11 @@
                         @csrf
                         <div class="form-group">
                             <label for="nome">Nome:</label>
-                            <input name="nome" id="nome" type="text" class="form-control" placeholder="Nome do tipo de vidro">
+                            <input name="nome" id="nome" type="text" class="form-control" placeholder="Nome do tipo de vidro" required>
                         </div>
                         <div class="form-group">
                             <label for="largura">Categoria:</label>
-                            <select class="custom-select" name="categoria">
+                            <select class="custom-select tipoVidroSelect" name="categoria">
                                 @foreach($categorias as $categoria)
                                     <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
                                 @endforeach
@@ -44,9 +44,4 @@
     </div>
 
     <script src="{{ asset('js/main.js') }}"></script>
-
-    <script !src="">
-        const comprimentoEl = document.querySelector('#comprimento');
-        const larguraEl = document.querySelector('#largura');
-    </script>
 @endsection
