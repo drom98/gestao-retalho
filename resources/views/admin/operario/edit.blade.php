@@ -38,6 +38,11 @@
                                 O nome de utilizador será usado para iniciar sessão.
                             </small>
                         </div>
+                        <div class="form-group">
+                            <input type="hidden" name="password_old" value="{{ $user->password }}">
+                            <label for="password">Password:</label>
+                            <input name="password" id="password" type="password" class="form-control" placeholder="Password">
+                        </div>
                         <a href="{{ URL::previous() }}" class="btn btn-secondary">Cancelar</a>
                         <button type="submit" class="btn btn-success">Guardar</button>
                     </form>

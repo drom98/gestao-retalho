@@ -62,12 +62,19 @@ class OperarioController extends Controller
             'email' => 'unique:users'
         ]);
 
+        if ($request->password == null) {
+            $password = $request->password_old;
+        } else {
+            $password = Hash::make($request->password);
+        }
+
         $user = User::findOrFail($user);
 
         $user->update([
             'name' => $request->nome,
             'username' => $request->username,
-            'email' => $request->email
+            'email' => $request->email,
+            'password' => $password
         ]);
 
         return redirect(route('admin.operario.index'))->with('sucesso', 'Utilizador atualizado.');
