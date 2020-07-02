@@ -32,10 +32,21 @@
       <div id="retalho" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <!--<h6 class="collapse-header">Custom Components:</h6>-->
-            <a class="collapse-item" href="/admin/retalho">Retalho disponível</a>
-            <a class="collapse-item" href="/admin/usado">Retalho usado</a>
-            <a class="collapse-item" href="/admin/retalho/eliminado">Retalho eliminado</a>
-            <a class="collapse-item" href="/admin/retalho/create">Adicionar retalho</a>
+            <a class="collapse-item" href="/admin/retalho">
+                Retalho disponível
+                <span class="badge badge-pill badge-info">{{ \App\Retalho::count() }}</span>
+            </a>
+            <a class="collapse-item" href="/admin/usado">
+                Retalho usado
+                <span class="badge badge-pill badge-info">{{ \App\RetalhoUsado::count() }}</span>
+            </a>
+            <a class="collapse-item" href="/admin/retalho/eliminado">
+                Retalho eliminado
+                <span class="badge badge-pill badge-info">{{ \App\Retalho::onlyTrashed()->count() }}</span>
+            </a>
+            <a class="collapse-item" href="/admin/retalho/create">
+                Adicionar retalho
+            </a>
         </div>
       </div>
     </li>
@@ -52,7 +63,10 @@
       <div id="tiposVidro" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <!--<h6 class="collapse-header">Custom Components:</h6>-->
-          <a class="collapse-item" href="/admin/tipoVidro">Ver tipos de vidro</a>
+          <a class="collapse-item" href="/admin/tipoVidro">
+              Ver tipos de vidro
+              <span class="badge badge-pill badge-info">{{ \App\TipoVidro::count() }}</span>
+          </a>
           <a class="collapse-item" href="/admin/tipoVidro/create">Adicionar tipo de vidro</a>
         </div>
       </div>
@@ -70,7 +84,10 @@
       <div id="categorias" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <!--<h6 class="collapse-header">Custom Components:</h6>-->
-          <a class="collapse-item" href="/admin/categoria">Ver categorias</a>
+          <a class="collapse-item" href="/admin/categoria">
+              Ver categorias
+              <span class="badge badge-pill badge-info">{{ \App\Categoria::count() }}</span>
+          </a>
           <a class="collapse-item" href="/admin/categoria/create">Adicionar categoria</a>
         </div>
       </div>
@@ -88,7 +105,10 @@
         <div id="localizacao" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!--<h6 class="collapse-header">Custom Components:</h6>-->
-                <a class="collapse-item" href="/admin/localizacao">Ver localizações</a>
+                <a class="collapse-item" href="/admin/localizacao">
+                    Ver localizações
+                    <span class="badge badge-pill badge-info">{{ \App\Localizacao::count() }}</span>
+                </a>
                 <a class="collapse-item" href="/admin/localizacao/create">Adicionar localização</a>
             </div>
         </div>
@@ -106,7 +126,10 @@
         <div id="operarios" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!--<h6 class="collapse-header">Custom Components:</h6>-->
-                <a class="collapse-item" href="/admin/operario">Ver utilizadores</a>
+                <a class="collapse-item" href="/admin/operario">
+                    Ver utilizadores
+                    <span class="badge badge-pill badge-info">{{ \App\User::count() }}</span>
+                </a>
                 <a class="collapse-item" href="/admin/operario/create">Adicionar utilizador</a>
             </div>
         </div>
