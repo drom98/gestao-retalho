@@ -98,7 +98,7 @@ class RetalhoService
                 return Helper::getLocalizedDate($retalho);
             })
             ->addColumn('opcoes', function ($retalho) {
-                $btnRestaurar = '<button data-id="'. $retalho->id .'" onclick="getRetalho('.$retalho->id.')" type="button" class="btn btn-sm btn-block btn-success" data-toggle="modal" data-target="#modalUsarRetalho"><i class="fas fa-check"></i> Restaurar</button>';
+                $btnRestaurar = '<button class="btn btn-block btn-sm btn-success" onclick="fecthDelete(' . $retalho->id . ', ' . "'/admin/retalho/eliminado/restore/'" . ', '. "'GET'" .')"><i class="fas fa-check"></i> Restaurar</button>';
                 $btnApagar = '<button class="btn btn-block btn-sm btn-danger" onclick="fecthDelete(' . $retalho->id . ', ' . "'/admin/retalho/eliminado/'" . ', '. "'GET'" .')"><i class="fas fa-trash"></i> Eliminar</button>';
                 return $btnRestaurar . $btnApagar;
             })

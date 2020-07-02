@@ -37,7 +37,7 @@ const fecthDelete = (id, url, method) => {
         'X-CSRF-TOKEN': getCSFR()
     })
 
-    if (confirm('Tem a certeza que pretende eliminar?')) {
+    if (confirm('Confirmar?')) {
 
         return fetch(url + id, {
             method: `${method}`,
