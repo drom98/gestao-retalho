@@ -74,7 +74,7 @@ class RetalhoController extends Controller
     {
         $this->retalhoService->update($request, $retalho);
 
-        return redirect(route('admin.retalho.index'))->with('sucesso', 'Retalho Nº'.$retalho->id.' atualizado.');
+        return redirect(route('admin.retalho.index'))->with('sucesso', 'Retalho atualizado.');
     }
 
     /**
@@ -83,20 +83,20 @@ class RetalhoController extends Controller
      * @param  \App\Retalho  $retalho
      * @return \Illuminate\Http\Response
      */
-    public function destroy($retalho)
+    public function destroy($retalho, Request $request)
     {
         $retalho = Retalho::findOrFail($retalho);
         $this->retalhoService->delete($retalho->id);
 
-        return redirect(route('admin.retalho.index'))->with('sucesso', 'Retalho eliminado.');
+        return $request->session()->flash('sucesso', 'Retalho eliminado.');
     }
 
-    public function deletePerma($retalho)
+    public function deletePerma($retalho, Request $request)
     {
         $retalho = Retalho::onlyTrashed()->where('id', $retalho);
         $retalho->forceDelete();
 
-        //return redirect(route('admin.retalho.eliminado'))->with('sucesso', 'Retalho eliminado permanentemente.');
+        return $request->session()->flash('sucesso', 'Retalho eliminado permanentemente.');
     }
 
     public function restore($retalho, Request $request)
