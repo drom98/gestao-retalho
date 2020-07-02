@@ -1,7 +1,12 @@
 @extends('admin.dashboard.layouts.app')
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">Tipos de Vidro</h1>
+    <h1 class="h3 mb-4 text-gray-800">
+        Tipos de Vidro
+        <span class="badge badge-pill badge-secondary">
+            {{ \App\TipoVidro::count() }}
+        </span>
+    </h1>
 
     @if (session('sucesso'))
         @include('includes.mensagemSucesso')

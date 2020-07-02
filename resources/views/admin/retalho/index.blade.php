@@ -4,7 +4,12 @@
     @include('includes.modalUsarRetalho')
     <div class="row">
         <div class="col">
-            <h1 class="h3 mb-4 text-gray-800">Retalho disponível</h1>
+            <h1 class="h3 mb-4 text-gray-800">
+                Retalho disponível
+                <span class="badge badge-pill badge-secondary">
+                    {{ \App\Retalho::count() }}
+                </span>
+            </h1>
         </div>
         <div class="col" style="text-align: right">
             <a href="{{ route('admin.retalho.create') }}" class="btn btn-sm btn-dark">Adicionar novo</a>

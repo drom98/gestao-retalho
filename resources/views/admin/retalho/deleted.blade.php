@@ -3,10 +3,12 @@
 @section('content')
     <div class="row">
         <div class="col">
-            <h1 class="h3 mb-4 text-gray-800">Retalho eliminado</h1>
-        </div>
-        <div class="col" style="text-align: right">
-            <a href="{{ route('admin.retalho.create') }}" class="btn btn-sm btn-dark">Adicionar novo</a>
+            <h1 class="h3 mb-4 text-gray-800">
+                Retalho eliminado
+                <span class="badge badge-pill badge-secondary">
+                    {{ \App\Retalho::onlyTrashed()->count() }}
+                </span>
+            </h1>
         </div>
     </div>
 
