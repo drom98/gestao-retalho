@@ -103,7 +103,7 @@ class TipoVidroController extends Controller
 
     public function getDataTables()
     {
-        return Datatables::of(TipoVidro::query())
+        return Datatables::of(TipoVidro::query()->orderBy('nome', 'asc'))
             ->addColumn('created_at', function ($tipoVidro) {
                 return Helper::getLocalizedDate($tipoVidro);
             })

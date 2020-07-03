@@ -95,7 +95,7 @@ class OperarioController extends Controller
 
     public function getDataTables()
     {
-        return Datatables::of(User::query())
+        return Datatables::of(User::query()->orderBy('name', 'asc'))
             ->addColumn('created_at', function ($user) {
                 return Helper::getLocalizedDate($user);
             })
