@@ -15,12 +15,12 @@ class OperarioController extends Controller
 {
     public function index()
     {
-        return view('admin.operario.index');
+        return view('admin.users.operario.index');
     }
 
     public function create()
     {
-        return view('admin.operario.create');
+        return view('admin.users.operario.create');
     }
 
     public function store(Request $request)
@@ -45,7 +45,7 @@ class OperarioController extends Controller
     {
         $user = User::findOrFail($user);
 
-        return view('admin.operario.edit')->with('user', $user);
+        return view('admin.users.operario.edit')->with('user', $user);
     }
 
     /**
@@ -58,8 +58,8 @@ class OperarioController extends Controller
     public function update(Request $request, $user)
     {
         $request->validate([
-            'username' => 'unique:users',
-            'email' => 'unique:users'
+            'username' => 'required|unique:users',
+            'email' => 'required|unique:users'
         ]);
 
         if ($request->password == null) {
@@ -86,11 +86,11 @@ class OperarioController extends Controller
      * @param  \App\Localizacao  $localizacao
      * @return \Illuminate\Http\Response
      */
-    public function destroy($operario)
+    public function destroy($operario, Request $request)
     {
         User::destroy($operario);
 
-        return redirect(route('admin.operario.index'))->with('sucesso', 'Operário eliminado.');
+        return $request->session()->flash('sucesso', 'Operário eliminado.');
     }
 
     public function getDataTables()
