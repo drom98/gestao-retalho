@@ -86,12 +86,15 @@ class OperarioController extends Controller
      * @param  \App\Localizacao  $localizacao
      * @return \Illuminate\Http\Response
      */
-    public function destroy($operario, Request $request)
+    public function destroy(User $operario, Request $request)
     {
         try {
-            User::destroy($operario);
+            $operario->delete();
+            //User::destroy($operario);
         } catch (\Exception $e) {
-            return $request->session()->flash('erro', 'Ocorreu um erro ao eliminar o utilizador. <br> Erro: ' . $e->getCode());
+            return $request->session()->flash(
+                'erro', 'Ocorreu um erro ao eliminar o utilizador ' . $operario->name . '.<br> (' . $e->getCode() . ') O utilizador tem retalhos associados.'
+            );
         }
 
         return $request->session()->flash('sucesso', 'Operário eliminado.');
