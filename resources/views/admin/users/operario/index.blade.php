@@ -28,7 +28,6 @@
                 <table class="table table-bordered" id="tabela-tiposVidro" width="100%">
                     <thead>
                     <tr>
-                        <th>#</th>
                         <th>Nome</th>
                         <th>Nome de utilizador</th>
                         <th>Email</th>
@@ -52,7 +51,6 @@
                 serverSide: true,
                 ajax: '{!! route('admin.operario.get') !!}',
                 columns: [
-                    { data: 'id', name: 'id' },
                     { data: 'name', name: 'name' },
                     { data: 'username', name: 'username' },
                     { data: 'email', name: 'email' },
