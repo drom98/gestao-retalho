@@ -1,12 +1,19 @@
 @extends('admin.dashboard.layouts.app')
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">
-        Operários registados
-        <span class="badge badge-pill badge-secondary">
-            {{ \App\User::count() }}
-        </span>
-    </h1>
+    <div class="row">
+        <div class="col">
+            <h1 class="h3 mb-4 text-gray-800">
+                Operários registados
+                <span class="badge badge-pill badge-secondary">
+                    {{ \App\User::count() }}
+                </span>
+            </h1>
+        </div>
+        <div class="col" style="text-align: right">
+            <a href="{{ route('admin.operario.create') }}" class="btn btn-sm btn-dark">Adicionar operário</a>
+        </div>
+    </div>
 
     @if (session('sucesso'))
         @include('includes.mensagemSucesso')
