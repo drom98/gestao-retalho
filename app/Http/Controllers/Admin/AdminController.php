@@ -111,9 +111,11 @@ class AdminController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy(Request $request, $admin)
     {
-        //
+        Admin::destroy($admin);
+
+        return $request->session()->flash('sucesso', 'Administrador eliminado.');
     }
 
     public function getDataTables()

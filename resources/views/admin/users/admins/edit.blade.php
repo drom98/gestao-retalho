@@ -13,6 +13,14 @@
             </button>
         </div>
     @endif
+
+    @if (session('sucesso'))
+        @include('includes.mensagemSucesso')
+    @endif
+    @if (session('errors'))
+        @include('includes.mensagemErro')
+    @endif
+
     <div class="row">
         <div class="col-md-8">
             <div class="card mb-4">
