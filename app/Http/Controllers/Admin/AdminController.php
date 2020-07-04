@@ -7,6 +7,7 @@ use App\Admin;
 use App\Helpers\Helper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Throwable;
 use Yajra\DataTables\DataTables;
 
 class AdminController extends Controller
@@ -113,7 +114,11 @@ class AdminController extends Controller
      */
     public function destroy(Request $request, $admin)
     {
-        Admin::destroy($admin);
+        try {
+            Admin::destroy($admin);
+        } catch (\Exception $e) {
+            return $request->session()->flash('erro', 'Ocorreu um erro ao eliminar o administrador. <br> Erro: ' . $e->getCode());
+        }
 
         return $request->session()->flash('sucesso', 'Administrador eliminado.');
     }

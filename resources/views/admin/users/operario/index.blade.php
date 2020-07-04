@@ -12,7 +12,7 @@
         @include('includes.mensagemSucesso')
     @endif
     @if (session('erro'))
-        @include('includes.mensagemSucesso')
+        @include('includes.mensagemErro')
     @endif
 
     <!-- DataTales Example -->

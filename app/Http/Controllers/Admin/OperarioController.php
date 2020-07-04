@@ -88,7 +88,11 @@ class OperarioController extends Controller
      */
     public function destroy($operario, Request $request)
     {
-        User::destroy($operario);
+        try {
+            User::destroy($operario);
+        } catch (\Exception $e) {
+            return $request->session()->flash('erro', 'Ocorreu um erro ao eliminar o utilizador. <br> Erro: ' . $e->getCode());
+        }
 
         return $request->session()->flash('sucesso', 'Operário eliminado.');
     }
