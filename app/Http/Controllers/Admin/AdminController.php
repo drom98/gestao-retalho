@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Admin;
 use App\Helpers\Helper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\DataTables;
 
 class AdminController extends Controller
@@ -34,11 +35,18 @@ class AdminController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
-        //
+        Admin::create([
+            'name' => $request->nome,
+            'email' => $request->email,
+            'username' => $request->username,
+            'password' => Hash::make($request->password)
+        ]);
+
+        return redirect(route('admin.administrador.index'))->with('sucesso', 'Administrador adicionado.');
     }
 
     /**
