@@ -60,6 +60,9 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 
         Route::get('/operario/get', 'OperarioController@getDataTables')->name('operario.get');
         Route::resource('operario', 'OperarioController');
+
+        Route::get('/administrador/get', 'AdminController@getDataTables')->name('administrador.get');
+        Route::resource('administrador', 'AdminController');
     });
 
     Route::namespace('Auth')->group(function(){

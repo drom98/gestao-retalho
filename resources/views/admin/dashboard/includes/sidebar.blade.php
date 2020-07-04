@@ -127,10 +127,15 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <!--<h6 class="collapse-header">Custom Components:</h6>-->
                 <a class="collapse-item" href="/admin/operario">
-                    Ver utilizadores
+                    Ver operários
                     <span class="badge badge-pill badge-info">{{ \App\User::count() }}</span>
                 </a>
-                <a class="collapse-item" href="/admin/operario/create">Adicionar utilizador</a>
+                <a class="collapse-item" href="/admin/administrador">
+                    Ver administradores
+                    <span class="badge badge-pill badge-info">{{ \App\Admin::count() }}</span>
+                </a>
+                <a class="collapse-item" href="/admin/operario/create">Adicionar operário</a>
+                <a class="collapse-item" href="/admin/operario/create">Adicionar administrador</a>
             </div>
         </div>
     </li>
