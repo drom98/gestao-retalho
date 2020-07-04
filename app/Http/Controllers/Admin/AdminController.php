@@ -66,9 +66,11 @@ class AdminController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function edit(Admin $admin)
+    public function edit($admin)
     {
-        //
+        $admin = Admin::findOrFail($admin);
+
+        return view('admin.users.admins.edit')->with('admin', $admin);
     }
 
     /**
@@ -78,9 +80,29 @@ class AdminController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Admin $admin)
+    public function update(Request $request, $admin)
     {
-        //
+        $request->validate([
+            'username' => 'required|unique:admins',
+            'email' => 'required|unique:admins'
+        ]);
+
+        if ($request->password == null) {
+            $password = $request->password_old;
+        } else {
+            $password = Hash::make($request->password);
+        }
+
+        $admin = Admin::findOrFail($admin);
+
+        $admin->update([
+            'name' => $request->nome,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => $password
+        ]);
+
+        return redirect(route('admin.administrador.index'))->with('sucesso', 'Administrador atualizado.');
     }
 
     /**
@@ -97,8 +119,8 @@ class AdminController extends Controller
     public function getDataTables()
     {
         return Datatables::of(Admin::query()->orderBy('name', 'asc'))
-            ->addColumn('created_at', function ($user) {
-                return Helper::getLocalizedDate($user);
+            ->addColumn('created_at', function ($admin) {
+                return Helper::getLocalizedDate($admin);
             })
             ->addColumn('opcoes', function ($admin) {
                 $btnEditar = '<a href="/admin/administrador/' . $admin->id . '/edit" class="btn btn-block btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
