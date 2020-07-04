@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Admin;
 use App\Helpers\Helper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Throwable;
 use Yajra\DataTables\DataTables;
@@ -114,6 +115,10 @@ class AdminController extends Controller
      */
     public function destroy(Request $request, $admin)
     {
+        if (Auth()->id() == $admin) {
+            return $request->session()->flash('erro', 'O administrador que pretende eliminar tem sessão ativa.');
+        }
+
         try {
             Admin::destroy($admin);
         } catch (\Exception $e) {
