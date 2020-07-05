@@ -21,6 +21,20 @@ class ChartService
         return new LaravelChart($chart_options);
     }
 
+    public function chartRetalhosPorLocalizacao()
+    {
+        $chart_options = [
+            'chart_title' => 'Retalhos por localização',
+            'chart_type' => 'pie',
+            'model' => 'App\Retalho',
+            'report_type' => 'group_by_relationship',
+            'relationship_name' => 'localizacao',
+            'group_by_field' => 'nome',
+        ];
+
+        return new LaravelChart($chart_options);
+    }
+
     public function chartRetalhosUsadosPorTipoVidro()
     {
         $chart_options = [

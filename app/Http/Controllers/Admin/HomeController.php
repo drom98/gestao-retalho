@@ -39,6 +39,7 @@ class HomeController extends Controller
             'qtRetalhoUsado' => RetalhoUsado::count(),
             'qtLocalizacoes' => Localizacao::count(),
             'chartRetalhosPorTipoVidro' => $this->chartService->chartRetalhosPorTipoVidro(),
+            'chartRetalhosPorLocalizacao' => $this->chartService->chartRetalhosPorLocalizacao()
         ]);
     }
 

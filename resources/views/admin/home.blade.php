@@ -81,6 +81,18 @@
             </div>
         </div>
 
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-header text-primary font-weight-bold">
+                    {{ $chartRetalhosPorLocalizacao->options['chart_title'] }}
+                </div>
+                <div class="card-body">
+                    {!! $chartRetalhosPorLocalizacao->renderHtml() !!}
+                    {!! $chartRetalhosPorLocalizacao->renderJs() !!}
+                </div>
+            </div>
+        </div>
+
 
     </div>
 @endsection
