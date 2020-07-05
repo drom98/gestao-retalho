@@ -2,9 +2,6 @@
 
 @section('content')
     <h1 class="h3 mb-4 text-gray-800">Adicionar retalho</h1>
-        @error('comprimento')
-            <p>{{ $message }}</p>
-        @enderror
         @if ($errors->any())
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             @foreach ($errors->all() as $error)
