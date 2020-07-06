@@ -28,8 +28,8 @@
                 <table class="table table-bordered" id="tabela-tiposVidro" width="100%">
                     <thead>
                     <tr>
-                        <th>#</th>
                         <th>Nome</th>
+                        <th>Categoria</th>
                         <th>Data</th>
                         <th>Opções</th>
                     </tr>
@@ -50,8 +50,8 @@
                 serverSide: true,
                 ajax: '{!! route('admin.tipoVidro.get') !!}',
                 columns: [
-                    { data: 'id', name: 'id' },
                     { data: 'nome', name: 'nome' },
+                    { data: 'categoria', name: 'categoria' },
                     { data: 'created_at', name: 'created_at'},
                     { data: 'opcoes', name: 'opcoes'},
                 ]
