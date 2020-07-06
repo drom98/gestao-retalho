@@ -17,17 +17,18 @@ class RetalhoUsado extends Model
         'obs',
         'id_seccao',
         'id_retalho',
-        'id_user'
+        'retalhable_id',
+        'retalhable_type',
     ];
+
+    public function retalhable()
+    {
+        return $this->morphTo();
+    }
 
     public function retalho()
     {
         return $this->belongsTo('App\Retalho', 'id_retalho');
-    }
-
-    public function user()
-    {
-        return $this->belongsTo('App\User', 'id_user');
     }
 
     public function seccao()

@@ -26,4 +26,9 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function retalhosUsados()
+    {
+        return $this->morphMany('App\RetalhoUsado', 'retalhable');
+    }
 }

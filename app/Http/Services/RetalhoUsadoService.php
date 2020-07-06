@@ -13,7 +13,7 @@ use Yajra\DataTables\DataTables;
 
 class RetalhoUsadoService
 {
-    public function store(Request $request)
+    public function store(Request $request, $user_id, $model)
     {
         $retalho = Retalho::find($request->id_retalho);
 
@@ -34,7 +34,8 @@ class RetalhoUsadoService
             'obs' => $request->obs,
             'id_seccao' => $request->seccao,
             'id_retalho' => $retalho->id,
-            'id_user' => Auth::id()
+            'retalhable_id' => $user_id,
+            'retalhable_type' => $model,
         ]);
 
         $retalho->comprimento = ($retalho->comprimento - $request->comprimento);
@@ -57,8 +58,8 @@ class RetalhoUsadoService
                     return $r->tipoVidro->nome;
                 }
             })
-            ->addColumn('id_user', function ($retalho) {
-                return $retalho->User->username;
+            ->addColumn('user', function ($retalho) {
+                return $retalho->retalhable->name;
             })
             ->addColumn('id_seccao', function ($retalho) {
                 return $retalho->Seccao->nome;

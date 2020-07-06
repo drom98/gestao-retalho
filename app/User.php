@@ -41,4 +41,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Retalho', 'id', 'id_user');
     }
 
+    public function retalhosUsados()
+    {
+        return $this->morphMany('App\RetalhoUsado', 'retalhable');
+    }
+
 }

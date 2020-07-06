@@ -39,9 +39,9 @@
                     { data: 'id_tipoVidro', name: 'id_tipoVidro' },
                     { data: 'id_seccao', name: 'id_seccao' },
                     { data: 'obs', name: 'obs', orderable: false },
-                    { data: 'id_user', name: 'id_user', orderable: false },
+                    { data: 'user', name: 'user', orderable: true },
                     { data: 'num_of', name: 'num_of', orderable: false},
-                    { data: 'created_at', name: 'created_at', orderable: false},
+                    { data: 'created_at', name: 'created_at', orderable: true},
                     { data: 'opcoes', name: 'opcoes', orderable: false}
                 ]
             });

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Services\RetalhoUsadoService;
 use App\RetalhoUsado;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RetalhoUsadoController extends Controller
 {
@@ -40,7 +41,7 @@ class RetalhoUsadoController extends Controller
      */
     public function store(Request $request)
     {
-        $this->retalhoUsadoService->store($request);
+        $this->retalhoUsadoService->store($request, Auth::id(), 'App\Admin');
 
         return redirect(route('admin.usado.index'))->with('sucesso', 'Retalho marcado como usado.');
     }
