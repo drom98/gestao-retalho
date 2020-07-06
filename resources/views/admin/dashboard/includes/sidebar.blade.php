@@ -135,7 +135,7 @@
                     <span class="badge badge-pill badge-info">{{ \App\Admin::count() }}</span>
                 </a>
                 <a class="collapse-item" href="/admin/operario/create">Adicionar operário</a>
-                <a class="collapse-item" href="/admin/operario/create">Adicionar administrador</a>
+                <a class="collapse-item" href="/admin/administrador/create">Adicionar administrador</a>
             </div>
         </div>
     </li>
