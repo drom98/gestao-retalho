@@ -17,7 +17,7 @@
         <div class="col-md-8">
             <div class="card mb-4">
                 <div class="card-header">
-                    {{ $tipoVidro->nome }}
+                    {{ $tipoVidro->nome }} ({{ $tipoVidro->categoria->nome }})
                 </div>
                 <div class="card-body">
                     <form class="user" method="POST" action="{{ route('admin.tipoVidro.update', $tipoVidro->id) }}">
@@ -26,6 +26,14 @@
                         <div class="form-group">
                             <label for="nome">Nome:</label>
                             <input name="nome" id="nome" type="text" class="form-control" placeholder="Nome" value="{{ $tipoVidro->nome }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="nome">Categoria:</label>
+                            <select class="custom-select tipoVidroSelect" name="categoria">
+                                @foreach($categorias as $categoria)
+                                    <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <a href="{{ URL::previous() }}" class="btn btn-secondary">Cancelar</a>
                         <button type="submit" class="btn btn-success">Guardar</button>
