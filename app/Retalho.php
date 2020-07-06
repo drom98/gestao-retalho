@@ -18,8 +18,14 @@ class Retalho extends Model
         'area',
         'id_tipoVidro',
         'id_localizacao',
-        'id_user'
+        'retalhable_id',
+        'retalhable_type'
     ];
+
+    public function retalhable()
+    {
+        return $this->morphTo();
+    }
 
     public function tipoVidro()
     {
@@ -29,11 +35,6 @@ class Retalho extends Model
     public function localizacao()
     {
         return $this->belongsTo('App\Localizacao', 'id_localizacao');
-    }
-
-    public function user()
-    {
-        return $this->belongsTo('App\User', 'id_user');
     }
 
     public function usados()

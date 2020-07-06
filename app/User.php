@@ -38,7 +38,7 @@ class User extends Authenticatable
 
     public function retalhos()
     {
-        return $this->hasMany('App\Retalho', 'id', 'id_user');
+        return $this->morphMany('App\Retalho', 'retalhable');
     }
 
     public function retalhosUsados()

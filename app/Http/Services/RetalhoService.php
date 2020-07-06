@@ -13,7 +13,7 @@ use function GuzzleHttp\Promise\all;
 
 class RetalhoService
 {
-    public function store(Request $request)
+    public function store(Request $request, $user_id, $model)
     {
         $this->validate($request);
 
@@ -25,7 +25,8 @@ class RetalhoService
                 'area' => Helper::getArea($request->largura, $request->comprimento),
                 'id_tipoVidro' => $request->tipoVidro,
                 'id_localizacao' => $request->localizacao,
-                'id_user' => Auth::id()
+                'retalhable_id' => $user_id,
+                'retalhable_type' => $model,
             ]
         );
     }
@@ -60,7 +61,7 @@ class RetalhoService
                 return $retalho->Localizacao->nome;
             })
             ->addColumn('user', function ($retalho) {
-                return $retalho->User->username;
+                return $retalho->retalhable->name;
             })
             ->addColumn('created_at', function ($retalho) {
                 return Helper::getLocalizedDate($retalho);
@@ -109,7 +110,7 @@ class RetalhoService
                 return $retalho->Localizacao->nome;
             })
             ->addColumn('id_user', function ($retalho) {
-                return $retalho->User->username;
+                return $retalho->retalhable->name;
             })
             ->addColumn('created_at', function ($retalho) {
                 return Helper::getLocalizedDate($retalho);

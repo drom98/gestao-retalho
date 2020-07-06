@@ -13,6 +13,7 @@ use App\Seccao;
 use App\TipoVidro;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 
 class RetalhoController extends Controller
@@ -44,7 +45,7 @@ class RetalhoController extends Controller
 
     public function store(Request $request)
     {
-        $this->retalhoService->store($request);
+        $this->retalhoService->store($request, Auth::id(), 'App\Admin');
         return redirect(route('admin.retalho.index'))->with('sucesso', 'Retalho adicionado.');
     }
 
