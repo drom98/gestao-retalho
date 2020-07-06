@@ -86,7 +86,12 @@ class RetalhoController extends Controller
     public function destroy($retalho, Request $request)
     {
         $retalho = Retalho::findOrFail($retalho);
-        $this->retalhoService->delete($retalho->id);
+
+        try {
+            Retalho::destroy($retalho->id);
+        } catch (\Exception $e) {
+            return $request->session()->flash('erro', 'Erro ao eliminar retalho.');
+        }
 
         return $request->session()->flash('sucesso', 'Retalho eliminado.');
     }
@@ -94,7 +99,14 @@ class RetalhoController extends Controller
     public function deletePerma($retalho, Request $request)
     {
         $retalho = Retalho::onlyTrashed()->where('id', $retalho);
-        $retalho->forceDelete();
+
+        try {
+            $retalho->forceDelete();
+        } catch (\Exception $e) {
+            return $request
+                ->session()
+                ->flash('erro', 'O retalho que pretende eliminar tem outros retalhos associados. <br> (erro: ' . $e->getCode() .')');
+        }
 
         return $request->session()->flash('sucesso', 'Retalho eliminado permanentemente.');
     }

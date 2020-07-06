@@ -15,7 +15,7 @@
     @if (session('sucesso'))
         @include('includes.mensagemSucesso')
     @endif
-    @if (session('errors'))
+    @if (session('erro'))
         @include('includes.mensagemErro')
     @endif
 

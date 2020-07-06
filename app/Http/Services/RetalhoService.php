@@ -50,13 +50,6 @@ class RetalhoService
         return Retalho::findOrFail($id);
     }
 
-    public function delete($id)
-    {
-        Retalho::destroy($id);
-
-        return true;
-    }
-
     public function getDataTables()
     {
         return Datatables::of(Retalho::where('deleted_at', null)->orderBy('created_at', 'desc'))
