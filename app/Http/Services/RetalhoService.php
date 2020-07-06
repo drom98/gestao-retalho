@@ -86,7 +86,7 @@ class RetalhoService
                 return $retalho->Localizacao->nome;
             })
             ->addColumn('user', function ($retalho) {
-                return $retalho->User->username;
+                return $retalho->retalhable->name;
             })
             ->addColumn('created_at', function ($retalho) {
                 return Helper::getLocalizedDate($retalho);

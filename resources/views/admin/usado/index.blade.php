@@ -33,6 +33,7 @@
                 serverSide: true,
                 ajax: '{!! route('admin.usado.get') !!}',
                 columns: [
+                    { data: 'lote', name: 'lote' },
                     { data: 'comprimento', name: 'comprimento' },
                     { data: 'largura', name: 'largura' },
                     { data: 'area', name: 'area' },
