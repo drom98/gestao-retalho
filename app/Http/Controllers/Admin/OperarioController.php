@@ -88,16 +88,22 @@ class OperarioController extends Controller
      */
     public function destroy(User $operario, Request $request)
     {
-        try {
-            $operario->delete();
-            //User::destroy($operario);
-        } catch (\Exception $e) {
-            return $request->session()->flash(
-                'erro', 'Ocorreu um erro ao eliminar o utilizador ' . $operario->name . '.<br> (' . $e->getCode() . ') O utilizador tem retalhos associados.'
-            );
+        if ($operario->retalhos->isNotEmpty() || $operario->retalhosUsados->isNotEmpty()) {
+            return $request
+                ->session()
+                ->flash(
+                    'erro', 'O utilizador tem retalhos associados. <br>'
+                    . 'Retalhos disponíveis: ' . count($operario->retalhos) . '. <br>'
+                    . 'Retalhos usados: ' . count($operario->retalhosUsados) . '.'
+                );
         }
 
-        return $request->session()->flash('sucesso', 'Operário eliminado.');
+        try {
+            $operario->delete();
+            return $request->session()->flash('sucesso', 'Operário eliminado.');
+        } catch (\Exception $e) {
+            return $request->session()->flash('erro', $e->getMessage());
+        }
     }
 
     public function getDataTables()
