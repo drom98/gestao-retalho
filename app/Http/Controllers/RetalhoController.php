@@ -110,12 +110,17 @@ class RetalhoController extends Controller
      * @param  \App\Retalho  $retalho
      * @return \Illuminate\Http\Response
      */
-    public function destroy($retalho)
+    public function destroy($retalho, Request $request)
     {
         $retalho = Retalho::findOrFail($retalho);
-        $this->retalhoService->delete($retalho->id);
 
-        return redirect(route('retalho.index'))->with('sucesso', 'Retalho eliminado.');
+        try {
+            Retalho::destroy($retalho->id);
+        } catch (\Exception $e) {
+            return $request->session()->flash('erro', 'Erro ao eliminar retalho.');
+        }
+
+        return $request->session()->flash('sucesso', 'Retalho eliminado.');
     }
 
     public function getRetalho()
