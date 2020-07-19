@@ -62,7 +62,7 @@
                     { data: 'username', name: 'username' },
                     { data: 'email', name: 'email' },
                     { data: 'created_at', name: 'created_at'},
-                    { data: 'opcoes', name: 'opcoes'}
+                    { data: 'opcoes', name: 'opcoes', orderable: false}
                 ]
             });
         });
