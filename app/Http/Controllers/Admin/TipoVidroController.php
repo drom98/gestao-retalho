@@ -107,7 +107,7 @@ class TipoVidroController extends Controller
 
     public function getDataTables()
     {
-        return Datatables::of(TipoVidro::query()->orderBy('nome', 'asc'))
+        return Datatables::of(TipoVidro::orderBy('nome', 'asc')->get())
             ->addColumn('categoria', function ($tipoVidro) {
                 return $tipoVidro->categoria->nome;
             })

@@ -53,7 +53,7 @@
                     { data: 'nome', name: 'nome' },
                     { data: 'categoria', name: 'categoria' },
                     { data: 'created_at', name: 'created_at'},
-                    { data: 'opcoes', name: 'opcoes'},
+                    { data: 'opcoes', name: 'opcoes', orderable: false},
                 ]
             });
         });
