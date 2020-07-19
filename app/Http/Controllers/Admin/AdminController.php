@@ -130,7 +130,7 @@ class AdminController extends Controller
 
     public function getDataTables()
     {
-        return Datatables::of(Admin::query()->orderBy('name', 'asc'))
+        return Datatables::of(Admin::orderBy('name', 'asc')->get())
             ->addColumn('created_at', function ($admin) {
                 return Helper::getLocalizedDate($admin);
             })
