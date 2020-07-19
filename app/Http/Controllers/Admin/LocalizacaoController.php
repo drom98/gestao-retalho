@@ -106,7 +106,7 @@ class LocalizacaoController extends Controller
 
     public function getDataTables()
     {
-        return Datatables::of(Localizacao::query()->orderBy('nome', 'asc'))
+        return Datatables::of(Localizacao::orderBy('nome', 'asc')->get())
             ->addColumn('opcoes', function ($localizacao) {
                 $btnEditar = '<a href="/admin/localizacao/' . $localizacao->id . '/edit" class="btn btn-block btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
                 $btnApagar = '<button class="btn btn-block btn-sm btn-danger" onclick="fecthDelete(' . $localizacao->id . ', ' . "'/admin/localizacao/'" . ', '. "'DELETE'" .')"><i class="fas fa-trash"></i> Eliminar</button>';

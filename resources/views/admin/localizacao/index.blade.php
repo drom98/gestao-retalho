@@ -28,7 +28,6 @@
                 <table class="table table-bordered" id="tabela-localizacoes" width="100%">
                     <thead>
                     <tr>
-                        <th>#</th>
                         <th>Nome</th>
                         <th>Data</th>
                         <th>Opções</th>
@@ -52,10 +51,9 @@
                 serverSide: true,
                 ajax: '{!! route('admin.localizacao.get') !!}',
                 columns: [
-                    { data: 'id', name: 'id' },
                     { data: 'nome', name: 'nome' },
                     { data: 'created_at', name: 'created_at' },
-                    { data: 'opcoes', name: 'opcoes' },
+                    { data: 'opcoes', name: 'opcoes', orderable: false },
                 ]
             });
         });
