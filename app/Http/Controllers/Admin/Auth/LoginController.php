@@ -39,7 +39,6 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        //dd('cenas');
         return view('admin.auth.login');
     }
 
@@ -51,7 +50,6 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-        //dd($request);
         $this->validator($request);
 
         if(Auth::guard('admin')->attempt($request->only('username','password'))){
@@ -70,8 +68,7 @@ class LoginController extends Controller
     {
         Auth::guard('admin')->logout();
         return redirect()
-            ->route('admin.login')
-            ->with('sucesso','Terminou sessão com sucesso.');
+            ->route('admin.login');
     }
 
     /**
@@ -82,8 +79,6 @@ class LoginController extends Controller
      */
     private function validator(Request $request)
     {
-        //dd($request);
-        //validation rules.
         $rules = [
             'username'    => 'required|exists:admins|min:3|max:100',
             'password' => 'required|string|min:4|max:255',
