@@ -94,7 +94,9 @@ class RetalhoController extends Controller
             return $request->session()->flash('erro', 'Erro ao eliminar retalho.');
         }
 
-        return $request->session()->flash('sucesso', 'Retalho eliminado.');
+        $link = '<br><a class="alert-link" href="'. route('admin.retalho.eliminado') .'">Ver retalhos eliminados</a>';
+
+        return $request->session()->flash('sucesso', 'Retalho eliminado. ' . $link);
     }
 
     public function deletePerma($retalho, Request $request)
@@ -117,7 +119,9 @@ class RetalhoController extends Controller
         $retalho = Retalho::onlyTrashed()->where('id', $retalho);
         $retalho->restore();
 
-        return $request->session()->flash('sucesso', 'Retalho restaurado.');
+        $link = '<br><a class="alert-link" href="'. route('admin.retalho.index') .'">Ver retalhos disponíveis</a>';
+
+        return $request->session()->flash('sucesso', 'Retalho restaurado. ' . $link);
     }
 
     public function getViewEliminado()
