@@ -61,7 +61,9 @@ class RetalhoController extends Controller
     {
         $this->retalhoService->store($request, Auth::id(), 'App\User');
 
-        return redirect(route('retalho.index'))->with('sucesso', 'Retalho adicionado.');
+        $link = '<br><a target="_blank" class="alert-link" href="'. route('etiqueta', ['id' => Retalho::orderBy('created_at', 'desc')->firstOrFail()]) .'">Gerar etiqueta</a>';
+
+        return redirect(route('retalho.index'))->with('sucesso', 'Retalho adicionado.' . $link);
     }
 
     /**
