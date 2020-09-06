@@ -10,9 +10,24 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 use function GuzzleHttp\Promise\all;
+use PDF;
 
 class RetalhoService
 {
+
+    public function gerarEtiqueta($id)
+    {
+        $retalho = $this->getRetalho($id);
+
+        $pdf = PDF::loadView('pdf.guia.guia', [
+            'retalho' => $retalho
+        ]);
+
+        $name = 'etiqueta-' . $retalho->num_lote . '.pdf';
+
+        return $pdf->setPaper('A4')->stream($name);
+    }
+
     public function store(Request $request, $user_id, $model)
     {
         $this->validate($request);

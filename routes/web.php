@@ -18,6 +18,8 @@ Route::get('/', 'OperarioController@home')->name('home');
 
 Route::get('/retalho/usar/get/{id}', 'RetalhoController@getRetalhoById')->name('usar.get');
 
+Route::get('/etiqueta/{id}', 'RetalhoController@gerarEtiqueta')->name('etiqueta');
+
 Auth::routes(['register' => false]);
 
 Route::middleware('auth:web')->group(function () {
@@ -26,7 +28,6 @@ Route::middleware('auth:web')->group(function () {
     Route::resource('retalho', 'RetalhoController');
 
     Route::resource('usado', 'RetalhoUsadoController');
-
 });
 
 Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){

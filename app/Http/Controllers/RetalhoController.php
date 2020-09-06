@@ -132,4 +132,9 @@ class RetalhoController extends Controller
     {
         return $this->retalhoService->getRetalho($id);
     }
+
+    public function gerarEtiqueta($id)
+    {
+        return $this->retalhoService->gerarEtiqueta($id);
+    }
 }
