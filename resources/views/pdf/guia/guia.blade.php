@@ -8,16 +8,22 @@
     <title>Etiqueta-{{ $retalho->num_lote }}</title>
     @inject('helper', 'App\Helpers\Helper')
     @inject('carbon', 'Carbon\Carbon')
+
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+    </style>
 </head>
 <body>
-    <p>Tipo de vidro: {{ $retalho->tipoVidro->nome }}</p>
-    <p>Comprimento: {{ $retalho->comprimento }}</p>
-    <p>Largura: {{ $retalho->largura }}</p>
-    <p>Area: {{ $retalho->area }}</p>
-    <p>Lote: {{ $retalho->num_lote }}</p>
-    <p>Data arrumação: {{ $helper->getLocalizedDate($retalho) }}</p>
-    <p>Local arrumação: {{ $retalho->localizacao->nome }}</p>
+    <p><strong>Tipo de vidro:</strong> {{ $retalho->tipoVidro->nome }}</p>
+    <p><strong>Comprimento:</strong> {{ $retalho->comprimento }}</p>
+    <p><strong>Largura:</strong> {{ $retalho->largura }}</p>
+    <p><strong>Area:</strong> {{ $retalho->area }}</p>
+    <p><strong>Lote:</strong> {{ $retalho->num_lote }}</p>
+    <p><strong>Data arrumação:</strong> {{ $helper->getLocalizedDate($retalho) }}</p>
+    <p><strong>Local arrumação:</strong> {{ $retalho->localizacao->nome }}</p>
     <hr>
-    <p>Gerado em: {{ $carbon->parse(now())->locale('pt_PT')->timezone('Europe/Lisbon')->isoFormat('LLL') }}</p>
+    <small>Etiqueta gerada: {{ $carbon->parse(now())->locale('pt_PT')->timezone('Europe/Lisbon')->isoFormat('LLL') }}</small>
 </body>
 </html>
