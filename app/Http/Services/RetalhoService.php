@@ -25,7 +25,7 @@ class RetalhoService
 
         $name = 'etiqueta-' . $retalho->num_lote . '.pdf';
 
-        return $pdf->setPaper('A4')->stream($name);
+        return $pdf->setPaper('A6')->stream($name);
     }
 
     public function store(Request $request, $user_id, $model)
