@@ -52,6 +52,11 @@ class RetalhoController extends Controller
         return redirect(route('admin.retalho.index'))->with('sucesso', 'Retalho adicionado.' . $link);
     }
 
+    public function show(Retalho $retalho)
+    {
+        return view('admin.retalho.show')->with('retalho', $retalho);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

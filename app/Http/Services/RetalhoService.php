@@ -82,11 +82,11 @@ class RetalhoService
                 return Helper::getLocalizedDate($retalho);
             })
             ->addColumn('opcoes', function ($retalho) {
-                $btnEtiqueta = '<a href="/etiqueta/' . $retalho->id . '" target="_blank" class="btn btn-block btn-sm btn-dark"><i class="fas fa-print"></i> Etiqueta</a>';
+                $btnShow = '<a href="/admin/retalho/' . $retalho->id . '" class="btn btn-block btn-sm btn-primary"><i class="far fa-file-alt"></i> Ver</a>';
                 $btnUsar = '<button data-id="'. $retalho->id .'" onclick="getRetalho('.$retalho->id.')" type="button" class="btn btn-sm btn-block btn-success" data-toggle="modal" data-target="#modalUsarRetalho"><i class="fas fa-check"></i> Usar</button>';
-                $btnEditar = '<a href="/admin/retalho/' . $retalho->id . '/edit" class="btn btn-block btn-sm btn-primary "><i class="fas fa-edit"></i> Editar</a>';
-                $btnApagar = '<button class="btn btn-block btn-sm btn-danger" onclick="fecthDelete(' . $retalho->id . ', ' . "'/admin/retalho/'" . ', '. "'DELETE'" .')"><i class="fas fa-trash"></i> Eliminar</button>';
-                return $btnEtiqueta . $btnUsar . $btnEditar . $btnApagar;
+                $btnEditar = '<a href="/admin/retalho/' . $retalho->id . '/edit" class="btn btn-block btn-sm btn-secondary"><i class="fas fa-edit"></i> Editar</a>';
+                $btnApagar = '<button class="btn btn-block btn-sm btn-danger" onclick="fecthDelete(' . $retalho->id . ', ' . "'/admin/retalho/'" . ', '. "'DELETE'" .')"><i class="far fa-trash-alt"></i> Eliminar</button>';
+                return $btnShow . $btnUsar . $btnEditar . $btnApagar;
             })
             ->rawColumns(['opcoes'])
             ->make(true);
