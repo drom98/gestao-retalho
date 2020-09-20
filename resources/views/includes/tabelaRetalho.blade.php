@@ -13,7 +13,7 @@
             <th>Localizaçao</th>
             <th>Data</th>
             <th>Utilizador</th>
-            <th>Opções</th>
+            <th style="max-width: 150px;">Opções</th>
         </tr>
         </thead>
     </table>

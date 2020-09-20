@@ -82,10 +82,10 @@ class RetalhoService
                 return Helper::getLocalizedDate($retalho);
             })
             ->addColumn('opcoes', function ($retalho) {
-                $btnShow = '<a href="/admin/retalho/' . $retalho->id . '" class="btn btn-block btn-sm btn-primary"><i class="far fa-file-alt"></i> Ver</a>';
-                $btnUsar = '<button data-id="'. $retalho->id .'" onclick="getRetalho('.$retalho->id.')" type="button" class="btn btn-sm btn-block btn-success" data-toggle="modal" data-target="#modalUsarRetalho"><i class="fas fa-check"></i> Usar</button>';
-                $btnEditar = '<a href="/admin/retalho/' . $retalho->id . '/edit" class="btn btn-block btn-sm btn-secondary"><i class="fas fa-edit"></i> Editar</a>';
-                $btnApagar = '<button class="btn btn-block btn-sm btn-danger" onclick="fecthDelete(' . $retalho->id . ', ' . "'/admin/retalho/'" . ', '. "'DELETE'" .')"><i class="far fa-trash-alt"></i> Eliminar</button>';
+                $btnShow = '<a href="/admin/retalho/' . $retalho->id . '" style="justify-content: flex-start;" class="btn btn-block btn-sm btn-primary btn-icon-split"><span class="icon"><i class="far fa-file-alt"></i></span><span class="text"> Ver</span></a>';
+                $btnUsar = '<button data-id="'. $retalho->id .'" onclick="getRetalho('.$retalho->id.')" style="justify-content: flex-start;" type="button" class="btn btn-sm btn-block btn-secondary btn-icon-split" data-toggle="modal" data-target="#modalUsarRetalho"><span class="icon"><i class="fas fa-check"></i></span><span class="span text"> Usar</span></button>';
+                $btnEditar = '<a href="/admin/retalho/' . $retalho->id . '/edit" style="justify-content: flex-start;" class="btn btn-block btn-sm btn-secondary btn-icon-split"><span class="icon"><i class="fas fa-edit"></i></span><span class="text"> Editar</span></a>';
+                $btnApagar = '<button style="justify-content: flex-start;" class="btn btn-block btn-sm btn-secondary btn-icon-split" onclick="fecthDelete(' . $retalho->id . ', ' . "'/admin/retalho/'" . ', '. "'DELETE'" .')"><span class="icon"><i class="far fa-trash-alt"></i></span><span class="text"> Eliminar</span></button>';
                 return $btnShow . $btnUsar . $btnEditar . $btnApagar;
             })
             ->rawColumns(['opcoes'])
