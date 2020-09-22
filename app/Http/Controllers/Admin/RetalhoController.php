@@ -54,7 +54,10 @@ class RetalhoController extends Controller
 
     public function show(Retalho $retalho)
     {
-        return view('admin.retalho.show')->with('retalho', $retalho);
+        return view('admin.retalho.show', [
+            'retalho' => $retalho,
+            'seccoes' => Seccao::all()
+        ]);
     }
 
     /**

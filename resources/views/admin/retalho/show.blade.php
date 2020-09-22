@@ -2,6 +2,8 @@
 
 @section('content')
 
+    @include('includes.modalUsarRetalho')
+
     @inject('data', 'App\Helpers\Helper');
 
     @if ($errors->any())
@@ -20,7 +22,14 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="font-weight-bold">Retalho #{{ $retalho->id }}</h5>
-                    <small>{{ $data->getLocalizedDate($retalho) }}</small>
+                    <small>{{ $retalho->retalhable->name }}, {{ $data->getLocalizedDate($retalho) }}</small>
+                    <div class="row mt-3">
+                        <div class="col-sm-12">
+                            <a href="{{ route('etiqueta', $retalho->id) }}" target="_blank" style="justify-content: flex-start;" class="btn btn-sm btn-dark btn-icon-split"><span class="icon"><i class="fas fa-print"></i></span><span class="text"> Gerar etiqueta</span></a>
+                            <button data-id="{{ $retalho->id }}" onclick="getRetalho({{ $retalho->id }})" style="justify-content: flex-start;" type="button" class="btn btn-sm btn-dark btn-icon-split" data-toggle="modal" data-target="#modalUsarRetalho"><span class="icon"><i class="fas fa-check"></i></span><span class="span text"> Usar</span></button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
