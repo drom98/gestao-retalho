@@ -98,7 +98,6 @@
                     { data: 'tipoVidro', name: 'tipoVidro' },
                     { data: 'localizacao', name: 'localizacao' },
                     { data: 'created_at', name: 'created_at'},
-                    { data: 'user', name: 'user' },
                     { data: 'opcoes', name: 'opcoes', orderable: false}
                 ]
             });
