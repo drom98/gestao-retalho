@@ -41,6 +41,7 @@
         <div class="col-md-8">
             <ul class="list-group">
                 <li class="list-group-item"><strong class="d-inline-block w-50">Tipo de vidro: </strong><span class="text-right">{{ $retalho->tipoVidro->nome }}</span></li>
+                <li class="list-group-item"><strong class="d-inline-block w-50">Categoria: </strong><span class="text-right">{{ $retalho->tipoVidro->categoria->nome }}</span></li>
                 <li class="list-group-item"><strong class="d-inline-block w-50">Comprimento: </strong><span class="text-right">{{ $retalho->comprimento }}</span></li>
                 <li class="list-group-item"><strong class="d-inline-block w-50">Largura: </strong><span class="text-right">{{ $retalho->largura }}</span></li>
                 <li class="list-group-item"><strong class="d-inline-block w-50">Área: </strong><span class="text-right">{{ $retalho->area }}</span></li>
