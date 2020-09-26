@@ -28,7 +28,7 @@
                             <a href="{{ route('etiqueta', $retalho->id) }}" target="_blank" style="justify-content: flex-start;" class="btn btn-sm btn-dark btn-icon-split"><span class="icon"><i class="fas fa-print"></i></span><span class="text"> Gerar etiqueta</span></a>
                             <button data-id="{{ $retalho->id }}" onclick="getRetalho({{ $retalho->id }})" style="justify-content: flex-start;" type="button" class="btn btn-sm btn-dark btn-icon-split" data-toggle="modal" data-target="#modalUsarRetalho"><span class="icon"><i class="fas fa-check"></i></span><span class="span text"> Usar</span></button>
                             <a href="/admin/retalho/{{ $retalho->id }}/edit" style="justify-content: flex-start;" class="btn btn-sm btn-dark btn-icon-split"><span class="icon"><i class="fas fa-edit"></i></span><span class="text"> Editar</span></a>
-                            <button style="justify-content: flex-start;" class="btn btn-sm btn-secondary btn-icon-split" onclick="fecthDelete({{ $retalho->id }}, '/admin/retalho/', 'DELETE')"><span class="icon"><i class="far fa-trash-alt"></i></span><span class="text"> Eliminar</span></button>
+                            <button style="justify-content: flex-start;" class="btn btn-sm btn-danger btn-icon-split" onclick="fecthDelete({{ $retalho->id }}, '/admin/retalho/', 'DELETE')"><span class="icon"><i class="far fa-trash-alt"></i></span><span class="text"> Eliminar</span></button>
                         </div>
                     </div>
 
