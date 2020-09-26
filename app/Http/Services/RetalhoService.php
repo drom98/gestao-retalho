@@ -22,7 +22,7 @@ class RetalhoService
         $pdf = PDF::loadView('pdf.guia.guia', [
             'retalho' => $retalho
         ]);
-        
+
         $name = 'etiqueta-' . $retalho->num_lote . '-' . date('dmyHi') . '.pdf';
 
         return $pdf->setPaper('A6')->stream($name);

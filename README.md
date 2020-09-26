@@ -36,5 +36,5 @@
 <!-- CONTACT -->
 ## Contact
 
-* Diogo Oliveira (diogo.marques1@ipcbcampus.pt)
+* Diogo Oliveira (dromarques@outlook.com)
 * [Linkedin](https://www.linkedin.com/in/diogo0liveira14/)
