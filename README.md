@@ -20,9 +20,10 @@
 ## Screens
 
 ![Login](https://i.imgur.com/lq1IGDO.png)
-![Admin area](https://i.imgur.com/O8xjMUv.png)
+![Admin area](https://i.imgur.com/JP4cUeT.png)
 ![Add "retalho"](https://i.imgur.com/6ErCJbU.png)
-![View list](https://i.imgur.com/ALoc0YG.png)
+![View list](https://i.imgur.com/m7qiVRI.png)
+![](https://i.imgur.com/xh0wBkR.png)
 ![View list](https://i.imgur.com/IsbCx00.png)
 
 
