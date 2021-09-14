@@ -113,10 +113,10 @@ class RetalhoService
     public function getDataTablesOperario()
     {
         return Datatables::of(Retalho::orderBy('created_at', 'desc')->get())
-            ->addColumn('id_tipoVidro', function ($retalho) {
+            ->addColumn('tipoVidro', function ($retalho) {
                 return $retalho->TipoVidro->nome;
             })
-            ->addColumn('id_localizacao', function ($retalho) {
+            ->addColumn('localizacao', function ($retalho) {
                 return $retalho->Localizacao->nome;
             })
             ->addColumn('id_user', function ($retalho) {

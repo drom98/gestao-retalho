@@ -44,10 +44,9 @@
                     { data: 'comprimento', name: 'comprimento' },
                     { data: 'largura', name: 'largura' },
                     { data: 'area', name: 'area' },
-                    { data: 'id_tipoVidro', name: 'id_tipoVidro' },
-                    { data: 'id_localizacao', name: 'id_localizacao' },
+                    { data: 'tipoVidro', name: 'tipoVidro' },
+                    { data: 'localizacao', name: 'localizacao' },
                     { data: 'created_at', name: 'created_at'},
-                    { data: 'id_user', name: 'id_user'},
                     { data: 'opcoes', name: 'opcoes', orderable: false}
                 ]
             });
